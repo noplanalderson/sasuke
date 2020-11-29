@@ -146,7 +146,7 @@ class Skmk extends Sasuke {
 			array(
 				'field' => 'no_ktp_pelapor',
 				'label' => 'No. KTP Pelapor',
-				'rules' => 'required|integer|exact_length[18]',
+				'rules' => 'required|integer|exact_length[16]',
 				'errors'=> array(
 					'required' => '{field} harus diisi.',
 					'integer' => '{field} harus angka.',
@@ -156,7 +156,7 @@ class Skmk extends Sasuke {
 			array(
 				'field' => 'no_ktp_terlapor',
 				'label' => 'No. KTP Terlapor',
-				'rules' => 'required|integer|exact_length[18]',
+				'rules' => 'required|integer|exact_length[16]',
 				'errors'=> array(
 					'required' => '{field} harus diisi.',
 					'integer' => '{field} harus angka.',
