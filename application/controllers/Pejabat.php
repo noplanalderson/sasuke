@@ -55,7 +55,7 @@ class Pejabat extends Sasuke {
 	{
 		$post = $this->input->post(null, TRUE);
 
-		$this->form_validation->set_rules('nama_pejabat', 'Nama Pejabat', 'trim|required|regex_match[/^[a-zA-Z0-9 ]+$/]|min_length[2]|max_length[255]');
+		$this->form_validation->set_rules('nama_pejabat', 'Nama Pejabat', 'trim|required|regex_match[/^[a-zA-Z0-9 .,]+$/]|min_length[2]|max_length[255]');
 		$this->form_validation->set_rules('nip', 'NIP Pejabat', 'required|integer|exact_length[18]|is_unique[tb_pejabat.nip]');
 		$this->form_validation->set_rules('id_jabatan', 'Jabatan', 'required|integer|min_length[1]|max_length[3]');
 
@@ -87,7 +87,7 @@ class Pejabat extends Sasuke {
 
 		$this->form_validation->set_rules('id_pejabat', 'ID Pejabat', 'trim|required|regex_match[/[a-z0-9\-]+$/]|exact_length[36]');
 		$this->form_validation->set_rules('nip', 'NIP Pejabat', 'required|integer|exact_length[18]');
-		$this->form_validation->set_rules('nama_pejabat', 'Nama Pejabat', 'trim|required|regex_match[/^[a-zA-Z0-9 ]+$/]|min_length[2]|max_length[255]');
+		$this->form_validation->set_rules('nama_pejabat', 'Nama Pejabat', 'trim|required|regex_match[/^[a-zA-Z0-9 .,]+$/]|min_length[2]|max_length[255]');
 		$this->form_validation->set_rules('id_jabatan', 'Jabatan', 'required|integer|min_length[1]|max_length[3]');
 
 		if ($this->form_validation->run() == TRUE)
