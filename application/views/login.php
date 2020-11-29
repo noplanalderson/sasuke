@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                                     <img class="logo-sasuke" src="<?= site_url('assets/uploads/'.$this->site['logo_app']);?>">
                                     <div class="text-center mb-4">
                                         <h1 class="h4 text-gray-900"><?= $this->site['judul_app_alt'];?></h1>
-                                        <small><?= $this->site['judul_app'];?></small>
+                                        <small><?= $this->site['judul_app'];?> <?= SASUKE_VERSION ?></small>
                                     </div>
                                     <div id="msg_login" class="alert" style="display:none;">
                                         <small class="msg_login"></small>
