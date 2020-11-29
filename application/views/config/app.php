@@ -41,7 +41,7 @@
                                 <div class="p-5">
                                     <img class="logo-sasuke" src="<?= site_url('assets/img/logo-default.png');?>">
                                     <div class="text-center mb-4">
-                                        <h1 class="h4 text-gray-900">SASUKE</h1>
+                                        <h1 class="h4 text-gray-900">SASUKE <?= SASUKE_VERSION ?></h1>
                                         <small>Konfigurasi Aplikasi dan User</small>
                                     </div>
                                     <div id="msg_config" class="alert" style="display: none">
