@@ -33,6 +33,7 @@ Instalasi
 -	`Letakkan Direktori utama aplikasi SASUKE ke dalam direktori root web server anda`_
 -	`Akses aplikasi SASUKE dari browser dan ikuti langkah instalasi`_
 -	`Jangan lupa untuk mengubah konfigurasi email di dalam direktori sasuke/application/config/email.php`_
+-	`Konfigurasi email wajib karena digunakan untuk mengirim password user saat membuat user baru`_
 
 *********
 Resources
