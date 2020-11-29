@@ -32,7 +32,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($pejabat as $pjb) :?>
+                                        <?php 
+                                        if(!empty($pejabat)) {
+                                        foreach ($pejabat as $pjb) :?>
                                         <tr>
                                             <td><?= $pjb->nip ?></td>
                                             <td><?= $pjb->nama_pejabat ?></td>
@@ -42,7 +44,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                                                 <?= button($btn_del, FALSE, 'a', 'href="'.base_url($btn_del->link_menu).'/'.encrypt($pjb->id_pejabat).'" class="btn btn-small btn-danger" onclick="return confirm(\'Anda Yakin Ingin Menghapus Pejabat?\')"');?>
                                             </td>
                                         </tr>
-                                        <?php endforeach;?>
+                                        <?php 
+                                            endforeach;
+                                        } else {
+                                            echo '<tr class="text-center"><td colspan="4">Tidak ada Data</td></tr>';
+                                        }
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>

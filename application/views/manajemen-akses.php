@@ -31,7 +31,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($akses_list as $akses) :?>
+                                        <?php 
+                                        if (!empty($akses_list)) {
+                                        foreach ($akses_list as $akses) :?>
                                         <tr>
                                             <td><?= $akses->user_type ?></td>
                                             <td><?= $this->akses_m->getRolesByID($akses->id_type); ?></td>
@@ -40,7 +42,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                                                 <?= button($btn_del, FALSE, 'a', 'href="'.base_url($btn_del->link_menu).'/'.encrypt($akses->id_type).'" class="btn btn-small btn-danger" onclick="return confirm(\'Anda Yakin Ingin Menghapus Tipe User?\')"');?>
                                             </td>
                                         </tr>
-                                        <?php endforeach;?>
+                                        <?php 
+                                            endforeach;
+                                        } else {
+                                            echo '<tr class="text-center"><td colspan="3">Tidak ada Data</td></tr>';
+                                        }
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>

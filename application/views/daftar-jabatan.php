@@ -30,7 +30,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($jabatan as $jbt) :?>
+                                    <?php 
+                                    if(!empty($jabatan)) {
+                                        foreach ($jabatan as $jbt) :?>
                                         <tr>
                                             <td><?= $jbt->nama_jabatan ?></td>
                                             <td>
@@ -38,7 +40,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                                                 <?= button($btn_del, FALSE, 'a', 'href="'.base_url($btn_del->link_menu).'/'.encrypt($jbt->id_jabatan).'" class="btn btn-small btn-danger" onclick="return confirm(\'Anda Yakin Ingin Menghapus Jabatan?\')"');?>
                                             </td>
                                         </tr>
-                                        <?php endforeach;?>
+                                    <?php 
+                                        endforeach;
+                                    } else {
+                                        echo '<tr class="text-center"><td colspan="2">Tidak ada Data</td></tr>';
+                                    }
+                                    ?>
                                     </tbody>
                                 </table>
                             </div>
