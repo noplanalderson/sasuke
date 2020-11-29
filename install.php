@@ -1,5 +1,6 @@
 <?php
 define('BASEPATH',TRUE);
+define('SASUKE_VERSION', 'v1.0');
 define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
 ini_set('display_errors', 0);
@@ -342,7 +343,7 @@ else
                                 <div class="p-5">
                                     <img class="logo-sasuke" src="assets/img/logo-default.png">
                                     <div class="text-center mb-4">
-                                        <h1 class="h4 text-gray-900">SASUKE</h1>
+                                        <h1 class="h4 text-gray-900">SASUKE <?= SASUKE_VERSION ?></h1>
                                         <small>Konfigurasi Database</small>
                                     </div>
                                     <div id="msg_db" class="alert" style="display: none">
