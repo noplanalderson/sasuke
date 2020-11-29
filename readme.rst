@@ -1,70 +1,48 @@
 ###################
-What is CodeIgniter
+Apa itu SASUKE ?
 ###################
 
-CodeIgniter is an Application Development Framework - a toolkit - for people
-who build web sites using PHP. Its goal is to enable you to develop projects
-much faster than you could if you were writing code from scratch, by providing
-a rich set of libraries for commonly needed tasks, as well as a simple
-interface and logical structure to access these libraries. CodeIgniter lets
-you creatively focus on your project by minimizing the amount of code needed
-for a given task.
+SASUKE (Sistem Aplikasi Surat Kematian) adalah sebuah aplikasi yang memudahkan proses pembuatan, peng-arsipan, dan manajemen daftar kematian penduduk bagi instansi-instansi atau stakeholder terkait.
 
 *******************
-Release Information
+Informasi Rilis
 *******************
 
-This repo contains in-development code for future releases. To download the
-latest stable release please visit the `CodeIgniter Downloads
-<https://codeigniter.com/download>`_ page.
+Ini adalah Rilis Pertama dari SASUKE `Download SASUKE v1.0 di sini
+<https://github.com/noplanalderson/sasuke/archive/v1.0.zip>`.
 
 **************************
 Changelog and New Features
 **************************
 
-You can find a list of all changes for each release in the `user
-guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
+Belum ada Perubahan dan Penambahan Fitur Baru
 
 *******************
-Server Requirements
+Kebutuhan Server
 *******************
 
-PHP version 5.6 or newer is recommended.
-
-It should work on 5.3.7 as well, but we strongly advise you NOT to run
-such old versions of PHP, because of potential security and performance
-issues, as well as missing features.
+Direkomendasikan untuk memakai PHP versi 7.3 atau terbaru.
 
 ************
-Installation
+Instalasi
 ************
 
-Please see the `installation section <https://codeigniter.com/user_guide/installation/index.html>`_
-of the CodeIgniter User Guide.
-
-*******
-License
-*******
-
-Please see the `license
-agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
+-	`Login ke database anda sebagai administrator`_
+-	`Buat database dengan nama sesuai keinginan anda`_
+-	`Disarankan membuat user non root dan berikan hak akses ke database SASUKE yang anda buat`_
+-	`Letakkan Direktori utama aplikasi SASUKE ke dalam direktori root web server anda`_
+-	`Akses aplikasi SASUKE dari browser dan ikuti langkah instalasi`_
+-	`Jangan lupa untuk mengubah konfigurasi email di dalam direktori sasuke/application/config/email.php`_
 
 *********
 Resources
 *********
 
--  `User Guide <https://codeigniter.com/docs>`_
--  `Language File Translations <https://github.com/bcit-ci/codeigniter3-translations>`_
--  `Community Forums <http://forum.codeigniter.com/>`_
--  `Community Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_
--  `Community Slack Channel <https://codeigniterchat.slack.com>`_
 
-Report security issues to our `Security Panel <mailto:security@codeigniter.com>`_
-or via our `page on HackerOne <https://hackerone.com/codeigniter>`_, thank you.
+Laporkan isu keamanan melalui `Security Panel <mailto:project21_itsolution@protonmail.com>`_
 
 ***************
 Acknowledgement
 ***************
 
-The CodeIgniter team would like to thank EllisLab, all the
-contributors to the CodeIgniter project and you, the CodeIgniter user.
+Aplikasi ini dikembangkan oleh : Muhammad Ridwan Na'im
