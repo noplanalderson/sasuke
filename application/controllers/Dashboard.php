@@ -13,9 +13,9 @@ class Dashboard extends Sasuke {
 	public function index()
 	{
 		$data = array(
-			'title' => $this->site['judul_app_alt'] .' - Dashboard'
+			'title' => $this->site['judul_app_alt'] .' - Dashboard',
+			'script' => ''
 		);
-		// $data['script'] => $this->load->view('home/script', $data, TRUE);
 
 		$view = array(
 			'partial/head',
