@@ -54,7 +54,7 @@ class Jabatan extends Sasuke {
 	{
 		$post = $this->input->post(null, TRUE);
 
-		$this->form_validation->set_rules('nama_jabatan', 'Jabatan', 'trim|required|regex_match[/^[a-zA-Z0-9 ]+$/]|min_length[2]|max_length[255]|is_unique[tb_jabatan.nama_jabatan]');
+		$this->form_validation->set_rules('nama_jabatan', 'Jabatan', 'trim|required|regex_match[/^[a-zA-Z0-9 .]+$/]|min_length[2]|max_length[255]|is_unique[tb_jabatan.nama_jabatan]');
 
 		if ($this->form_validation->run() == TRUE)
 		{		
