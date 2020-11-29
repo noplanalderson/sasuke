@@ -9,10 +9,10 @@ Informasi Rilis
 *******************
 
 Ini adalah Rilis Pertama dari SASUKE `Download SASUKE v1.0 di sini
-<https://github.com/noplanalderson/sasuke/archive/v1.0.zip>`.
+<https://github.com/noplanalderson/sasuke/archive/v1.0.zip>`_.
 
 **************************
-Changelog and New Features
+Perubahan dan Fitur Baru
 **************************
 
 Belum ada Perubahan dan Penambahan Fitur Baru
@@ -39,7 +39,7 @@ Resources
 *********
 
 
-Laporkan isu keamanan melalui `Security Panel <mailto:project21_itsolution@protonmail.com>`_
+Laporkan isu keamanan melalui `Email Saya <mailto:project21_itsolution@protonmail.com>`_
 
 ***************
 Acknowledgement
