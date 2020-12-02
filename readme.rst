@@ -8,8 +8,8 @@ SASUKE (Sistem Aplikasi Surat Kematian) adalah sebuah aplikasi yang memudahkan p
 Informasi Rilis
 *******************
 
-Ini adalah Rilis Pertama dari SASUKE `Download SASUKE v1.0 di sini
-<https://github.com/noplanalderson/sasuke/archive/v1.0.zip>`_.
+Ini adalah Rilis Kedua dari SASUKE `Download SASUKE v2.0 di sini
+<https://github.com/noplanalderson/sasuke/archive/2.0.zip>`_.
 
 **************************
 Perubahan dan Fitur Baru
