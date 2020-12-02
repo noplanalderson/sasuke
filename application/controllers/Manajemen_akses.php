@@ -55,7 +55,7 @@ class Manajemen_akses extends Sasuke {
 	{
 		$post = $this->input->post(null, TRUE);
 
-		$this->form_validation->set_rules('user_type', 'Tipe User', 'trim|required|regex_match[/^[a-zA-Z ]+$/]|min_length[1]|max_length[15]|is_unique[tb_user_type.user_type]');
+		$this->form_validation->set_rules('user_type', 'Tipe User', 'trim|required|regex_match[/^[a-zA-Z ]+$/]|min_length[1]|max_length[100]|is_unique[tb_user_type.user_type]');
 		$this->form_validation->set_rules('id_menu[]', 'Roles', 'trim|required');
 
 		if ($this->form_validation->run() == TRUE)
@@ -84,7 +84,7 @@ class Manajemen_akses extends Sasuke {
 	{
 		$post = $this->input->post(null, TRUE);
 
-		$this->form_validation->set_rules('user_type', 'Tipe User', 'trim|required|regex_match[/^[a-zA-Z ]+$/]|min_length[1]|max_length[15]');
+		$this->form_validation->set_rules('user_type', 'Tipe User', 'trim|required|regex_match[/^[a-zA-Z ]+$/]|min_length[1]|max_length[100]');
 		$this->form_validation->set_rules('id_menu[]', 'Roles', 'trim|required');
 
 		if ($this->form_validation->run() == TRUE)

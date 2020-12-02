@@ -19,14 +19,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                             </div>
                         </div>
                         <div id="cetak" class="card-body">
-                            <div class="table-responsive" style="width:80%;margin-left:10%">
+                            <div style="padding:5rem">
                                   <table class="" style="font-family:Calibri, sans-serif; border-collapse: collapse;" width="100%" align="center">
                                   <!--FORM HEADER-->
                                       <tr style="text-align:center;">
                                           <td colspan="2" style="vertical-align:middle;"><img src="<?= encodeImage('./assets/uploads/'.$instansi->logo_kop_instansi);?>" width="150px" height="150px"></td>
                                           <td colspan="18" style="vertical-align:middle;">
                                             <h5><?= strtoupper($instansi->induk_instansi) ?></h5>
-                                            <h5>DINAS KESEHATAN</h5>
                                             <h4><?= strtoupper($instansi->nama_instansi) ?></h4>
                                             <p><?= $instansi->alamat_instansi.', Kode Pos : '.$instansi->kode_pos_instansi ?><br/>
                                             Telp : <?= $instansi->telp_instansi ?>, Email : <?= $instansi->email_instansi ?></p>
@@ -117,8 +116,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                                       <p><?= ucwords(strtolower($instansi->kota_instansi)) ?>, <?= format_tanggal($skmk->tgl_dibuat);?></p>
                                       <p style="margin-top:-1rem;">a.n. Kepala <?= ucwords(strtolower($instansi->nama_instansi_alt)) ?></p>
                                       <p style="margin-top:-1rem"><?= ucwords(strtolower($instansi->kota_administrasi)) ?>,</p>
-                                      <p style="margin-top:-1rem"><?= $skmk->nama_jabatan ?></p>
-                                      <p style="margin-top:5rem"><u><?= $skmk->nama_pejabat ?></u></p>
+                                      <p style="margin-top:-1rem"><?= $skmk->user_type ?></p>
+                                      <p style="margin-top:5rem"><u><?= $skmk->nama_pegawai ?></u></p>
                                       <p style="margin-top:-1rem">NIP. <?= $skmk->nip ?></p>
                                   </div>
 

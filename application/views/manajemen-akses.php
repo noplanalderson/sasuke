@@ -6,8 +6,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                     <!-- Page Heading -->
                     <h1 class="h3 mb-4 text-gray-800">Manajemen Akses</h1>
 
-                    <!-- <div class="msg" style="display:none;"><?php // $this->session->flashdata('message');?></div> -->
-
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
@@ -22,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>Tipe Akses</th>

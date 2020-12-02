@@ -53,14 +53,14 @@
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label>Kode Instansi</label>
+                                                    <label>Kode Surat Instansi *</label>
                                                     <input type="text" id="kode_instansi" name="kode_instansi" placeholder="Kode Instansi" class="form-control" required="required"/>
                                                     <small class="text-danger">Hanya huruf 2-10 karakter.</small>
                                                 </div>
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="form-group">
-                                                    <label>Nama Instansi</label>
+                                                    <label>Nama Instansi *</label>
                                                     <input type="text" id="nama_instansi" name="nama_instansi" placeholder="Nama Instansi" class="form-control" required="required" />
                                                     <small class="text-danger">Hanya alfanumerik, spasi, dan dash</small>
                                                 </div>
@@ -77,7 +77,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>Induk Instansi</label>
+                                                    <label>Induk Instansi *</label>
                                                     <input type="text" id="induk_instansi" name="induk_instansi" placeholder="Induk Instansi" class="form-control" required="required"/>
                                                     <small class="text-danger">Hanya alfanumerik dan spasi</small>
                                                 </div>
@@ -86,14 +86,14 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>Kota Instansi</label>
+                                                    <label>Kota Instansi *</label>
                                                     <input type="text" id="kota_instansi" name="kota_instansi" placeholder="Kota Instansi" class="form-control" required="required"/>
                                                     <small class="text-danger">Hanya huruf dan spasi</small>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>Kota Administrasi/DATI II</label>
+                                                    <label>Kota Administrasi/DATI II *</label>
                                                     <input type="text" id="kota_administrasi" name="kota_administrasi" placeholder="Kota Adminstrasi / DATI II" class="form-control" required="required"/>
                                                     <small class="text-danger">Hanya alfanumerik dan spasi</small>
                                                 </div>
@@ -102,7 +102,7 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label>Alamat Instansi</label>
+                                                    <label>Alamat Instansi *</label>
                                                     <textarea name="alamat_instansi" id="alamat_instansi" class="form-control"></textarea>
                                                 </div>
                                             </div>
@@ -111,14 +111,14 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>Kode Pos Instansi</label>
+                                                    <label>Kode Pos Instansi *</label>
                                                     <input type="number" id="kode_pos_instansi" name="kode_pos_instansi" placeholder="Kode Pos" class="form-control" required="required"/>
                                                     <small class="text-danger">Hanya angka 5 karakter</small>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>Telepon Instansi</label>
+                                                    <label>Telepon Instansi *</label>
                                                     <input type="text" id="telp_instansi" name="telp_instansi" placeholder="No. Telepon" class="form-control" required="required"/>
                                                     <small class="text-danger">Format +62xxx / (021) xxx / 021-xxx-xxx </small>
                                                 </div>
@@ -127,13 +127,13 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>Email Instansi</label>
+                                                    <label>Email Instansi *</label>
                                                     <input type="email" id="email_instansi" name="email_instansi" placeholder="Email" class="form-control" required="required"/>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>Logo Kop Instansi</label>
+                                                    <label>Logo Kop Instansi *</label>
                                                     <input type="file" class="form-control" name="logo_kop_instansi" id=logo_kop_instansi accept="image/*" required="required">
                                                     <small class="text-danger">Ekstensi gambar harus JPG, JPEG, PNG maks. 5MB.</small>
                                                 </div>

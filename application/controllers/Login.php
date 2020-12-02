@@ -65,7 +65,7 @@ class Login extends Sasuke
 				else
 				{
 					$status = 0;
-					$this->msg = 'Login Gagal. Username atau Email tidak terdaftar!';
+					$this->msg = 'Login Gagal. Username tidak terdaftar atau belum diaktivasi!';
 				}
 			}
 			else

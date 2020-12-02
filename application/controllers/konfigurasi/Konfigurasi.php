@@ -78,6 +78,27 @@ class Konfigurasi extends SASUKE_Config {
 				]
 			),
 			array(
+				'field' => 'nama_pegawai',
+				'label' => 'Nama Pegawai',
+				'rules' => 'trim|required|max_length[255]|regex_match[/[a-zA-Z ,.]+$/]',
+				'errors'=> array(
+					'required' => '{field} harus diisi.',
+					'min_length' => 'Panjang minimal {field} {param} karakter',
+					'max_length' => 'Panjang maksiml {field} {param} karakter',
+					'regex_match'=> '{field} hanya  boleh mengandung huruf, titik, koma, dan spasi'
+				)
+			),
+			array(
+				'field' => 'nip',
+				'label' => 'NIP',
+				'rules' => 'integer|exact_length[18]',
+				'errors'=> array(
+					'required' => '{field} harus diisi.',
+					'exact_length' => 'Panjang {field} harus {param} karakter',
+					'integer'=> '{field} harus angka'
+				)
+			),
+			array(
 				'field' => 'user_password',
 		        'label' => 'Password',
 		        'rules' => 'regex_match[/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.* )(?=.*[^a-zA-Z0-9]).{8,16}$/]|required',
@@ -214,7 +235,9 @@ class Konfigurasi extends SASUKE_Config {
 
 			$userSetting = array(
 				'user_name' => $post['user_name'],
-				'user_password' => password_hash($post['user_password'], PASSWORD_ARGON2ID),
+				'user_password' => passwordHash($post['user_password']),
+				'nama_pegawai' => ucwords($post['nama_pegawai']),
+				'nip' => $post['nip'],
 				'user_email' => strtolower($post['user_email']),
 				'id_type' => 1,
 				'user_picture' => 'user.png',

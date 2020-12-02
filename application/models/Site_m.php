@@ -56,7 +56,7 @@ class Site_m extends CI_Model {
 
 	public function getUserProfile()
 	{
-		$this->db->select("user_name, user_picture, FROM_UNIXTIME(last_login) AS last_login, INET6_NTOA(last_ip) AS last_ip");
+		$this->db->select("user_name, user_picture, nama_pegawai, FROM_UNIXTIME(last_login) AS last_login, INET6_NTOA(last_ip) AS last_ip");
 		$this->db->where('id_user', $this->session->userdata('uid'));
 		return $this->db->get('tb_user')->row();
 	}

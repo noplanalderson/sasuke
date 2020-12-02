@@ -79,8 +79,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		<p>The corresponding controller for this page is found at:</p>
 		<code><?php 
-		$key = base64_encode(random_bytes(SODIUM_CRYPTO_SECRETBOX_KEYBYTES)); echo $key.'<br/>';
-		$cipher = rawurlencode(hash_generator(random_string('alnum', 8),$key)); echo $cipher;?></code>
+		$plain = hash('gost', random_string('alnum', 8));
+		echo $plain.'<br/>';
+		$key = random_bytes(SODIUM_CRYPTO_SECRETBOX_KEYBYTES); echo base64url_encode($key).'<br/>';
+		$cipher = hash_generator($plain,$key); echo base64url_encode($cipher);?></code>
 		<code><?= hash_unbox($cipher, $key);?></code>
 		<code>
 		<?php
@@ -100,7 +102,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$ciphertext = $CI->encryption->encrypt($plain_text);
 		echo $ciphertext.'<br/>';
 		echo $key.'<br/>';
-		echo $key_digest.'<br/>';
+		// echo $key_digest.'<br/>';
 		echo $CI->encryption->decrypt($ciphertext);
 		?>
 	</code>

@@ -20,7 +20,7 @@
             <?= $this->security->get_csrf_token_name();?>: $('input[name="<?= $this->security->get_csrf_token_name();?>"]').attr('value'),
             nomor: $("#nomor").val(),
             no_skmk: $("#no_skmk").val(),
-            id_pejabat: $("#id_pejabat").val(),
+            id_user: $("#id_user").val(),
             nama_pelapor: $("#nama_pelapor").val(),
             nama_terlapor: $("#nama_terlapor").val(),
             no_ktp_pelapor: $("#no_ktp_pelapor").val(),

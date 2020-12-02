@@ -5,7 +5,7 @@ class Skmk extends Sasuke {
 
 	public $skmk = array(
 		'id_pelapor' => '',
-		'id_pejabat' => '',
+		'id_user' => '',
 		'nama_pelapor' => '',
 		'tempat_lahir_pelapor' => '',
 		'tgl_lahir_pelapor' => '',
@@ -31,7 +31,6 @@ class Skmk extends Sasuke {
 		$this->access_control->check_role();
 		
 		$this->load->model('skmk_m');
-		$this->load->model('jabatan_m');
 	}
 
 	public function index()
@@ -60,9 +59,13 @@ class Skmk extends Sasuke {
 
 	public function detail($id = NULL)
 	{
+		$skmk = $this->skmk_m->getSkmkDetail($id);
+
+		if(empty($skmk)) show_404();
+
 		$data = array(
 			'title' 	=> $this->site['judul_app_alt'] . ' - Surat Kematian',
-			'skmk'		=> $this->skmk_m->getSkmkDetail($id),
+			'skmk'		=> $skmk,
 			'instansi'	=> $this->skmk_m->getInstansi()
 		);
 
@@ -115,8 +118,8 @@ class Skmk extends Sasuke {
 				)
 			),
 			array(
-				'field' => 'id_pejabat',
-				'label' => 'Pejabat',
+				'field' => 'id_user',
+				'label' => 'Penanda Tangan',
 				'rules' => 'required|integer',
 				'errors'=> array(
 					'required' => '{field} harus diisi.',
@@ -289,7 +292,7 @@ class Skmk extends Sasuke {
 				$pelapor = array(
 					'id_pelapor' => $id_skmk,
 					'no_skmk' => sprintf("%03d",$post['nomor']).'/'.$post['no_skmk'],
-					'id_pejabat' => $post['id_pejabat'],
+					'id_user' => $post['id_user'],
 					'nama_pelapor' => $post['nama_pelapor'],
 					'no_ktp_pelapor' => $post['no_ktp_pelapor'],
 					'pekerjaan_pelapor' => $post['pekerjaan_pelapor'],
@@ -338,7 +341,7 @@ class Skmk extends Sasuke {
 			$data = array(
 				'title' 	=> $this->site['judul_app_alt']. ' - Buat SKMK',
 				'script' 	=> $this->load->view('script/buat-skmk', NULL, TRUE),
-				'pejabat'	=> $this->jabatan_m->getPejabat(),
+				'pegawai'	=> $this->skmk_m->getPegawai(),
 				'kode_instansi' => $this->skmk_m->getInstansi(),
 				'nomor'		=> $this->skmk_m->getNomor(),
 				'value'		=> $this->skmk,
@@ -375,7 +378,7 @@ class Skmk extends Sasuke {
 				$pelapor = array(
 					'id_pelapor' => $post['nomor'],
 					'no_skmk' => sprintf("%03d",$post['nomor']).'/'.$post['no_skmk'],
-					'id_pejabat' => $post['id_pejabat'],
+					'id_user' => $post['id_user'],
 					'nama_pelapor' => $post['nama_pelapor'],
 					'no_ktp_pelapor' => $post['no_ktp_pelapor'],
 					'tempat_lahir_pelapor' => $post['tempat_lahir_pelapor'],
@@ -424,7 +427,7 @@ class Skmk extends Sasuke {
 			$data = array(
 				'title' 	=> $this->site['judul_app_alt']. ' - Buat SKMK',
 				'script' 	=> $this->load->view('script/buat-skmk', NULL, TRUE),
-				'pejabat'	=> $this->jabatan_m->getPejabat(),
+				'pegawai'	=> $this->skmk_m->getPegawai(),
 				'kode_instansi' => $this->skmk_m->getInstansi(),
 				'nomor'		=> $this->skmk_m->getNomor(),
 				'value'		=> $this->skmk,

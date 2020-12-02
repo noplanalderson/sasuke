@@ -53,7 +53,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>Judul Aplikasi</label>
+                                                    <label>Judul Aplikasi *</label>
                                                     <input type="text" id="judul_app" name="judul_app" placeholder="Judul Aplikasi" class="form-control" required="required"/>
                                                     <small class="text-danger">Hanya alfanumerik spasi dan dash</small>
                                                 </div>
@@ -69,26 +69,39 @@
 
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Username</label>
+                                                <label>Username *</label>
                                                 <input type="text" id="user_name" name="user_name" placeholder="Username" class="form-control" required="required"/>
                                                 <small class="text-danger">Hanya alfanumerik dan underscore</small>
                                             </div>
                                             <div class="col-md-6">
-                                                <label>Email</label>
+                                                <label>Email *</label>
                                                 <input type="email" id="user_email" name="user_email" placeholder="you@somewhere.com" class="form-control" required="required"/>
                                             </div>
                                         </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Nama Pegawai *</label>
+                                                <input type="text" id="nama_pegawai" name="nama_pegawai" placeholder="Nama Pegawai" class="form-control" required="required"/>
+                                                <small class="text-danger">Hanya Huruf, titik, koma, dan Spasi</small>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>NIP</label>
+                                                <input type="text" id="nip" name="nip" placeholder="NIP" class="form-control" />
+                                            </div>
+                                        </div>
+
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-            								    	<label>Password</label>
+            								    	<label>Password *</label>
             										<input type="password" id="user_password" name="user_password" placeholder="********" class="form-control" required="required"/>
                                                     <small class="text-danger">Password harus terdiri dari Uppercase, Lowercase, Numerik, dan Simbol min. 8 karakter</small>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>Repeat Password</label>
+                                                    <label>Repeat Password *</label>
                                                     <input type="password" id="repeat_password" name="repeat_password" placeholder="********" class="form-control" required="required"/>
                                                     <small class="text-danger">Password harus cocok.</small>
                                                 </div>
@@ -96,7 +109,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Footer Aplikasi</label>
+                                            <label>Footer Aplikasi *</label>
                                             <input type="text" id="text_footer_app" name="text_footer_app" placeholder="Footer Aplikasi" class="form-control" required="required" />
                                         </div>
 

@@ -5,7 +5,7 @@ class User_m extends CI_Model {
 
 	public function getAllUsers()
 	{
-		$this->db->select('a.id_user, a.user_name, a.user_email, a.is_active, b.user_type');
+		$this->db->select('a.id_user, a.user_name, a.nama_pegawai, a.nip, a.user_email, a.is_active, b.user_type');
 		$this->db->join('tb_user_type b', 'a.id_type = b.id_type', 'inner');
 		$this->db->where('a.id_user != ', $this->session->userdata('uid'));
 		return $this->db->get('tb_user a')->result();
@@ -19,15 +19,12 @@ class User_m extends CI_Model {
 
 	public function tambahUser($data)
 	{
-		unset($data['submit']);
-		unset($data['user_picture_old']);
-
 		return $this->db->insert('tb_user', $data) ? true : false;
 	}
 
 	public function getUserByID($id)
 	{
-		$this->db->select('user_name, user_email, id_type, user_picture, is_active');
+		$this->db->select('user_name, user_email, nip, nama_pegawai, id_type, user_picture, is_active');
 		$this->db->where('md5(id_user)', verify($id));
 		return $this->db->get('tb_user')->row_array();
 	}
@@ -49,9 +46,6 @@ class User_m extends CI_Model {
 
 	public function editUser($data, $id)
 	{
-		unset($data['submit']);
-		unset($data['user_picture_old']);
-
 		$this->db->where('md5(id_user)', verify($id));
 		return $this->db->update('tb_user', $data) ? true : false;
 	}
@@ -60,6 +54,12 @@ class User_m extends CI_Model {
 	{
 		$this->db->where('md5(id_user)', verify($id));
 		return $this->db->delete('tb_user') ? true : false;
+	}
+
+	public function statusUser($status, $id)
+	{
+		$this->db->where('md5(id_user)', verify($id));
+		return $this->db->update('tb_user', ['is_active' => $status]) ? true : false;
 	}
 }
 

@@ -27,8 +27,9 @@ $protocol = (isset($_SERVER['HTTPS']) &&
             ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
             isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
             $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') ? 'https://' : 'http://';
-
-$config['base_url'] = $protocol.$_SERVER['HTTP_HOST'].'/sasuke';
+$location = explode(DIRECTORY_SEPARATOR, FCPATH);
+$location = array_values(array_slice($location, -2))[0]; 
+$config['base_url'] = $protocol.$_SERVER['HTTP_HOST'].'/'.$location;
 
 /*
 |--------------------------------------------------------------------------
@@ -163,7 +164,7 @@ $config['composer_autoload'] = FALSE;
 | DO NOT CHANGE THIS UNLESS YOU FULLY UNDERSTAND THE REPERCUSSIONS!!
 |
 */
-$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
+$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-\/=+';
 
 /*
 |--------------------------------------------------------------------------

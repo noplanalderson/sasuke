@@ -41,7 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                        <a class="small" href="<?= base_url('lupa-password');?>">Lupa Password?</a>
                                     </div>
                                 </div>
                             </div>

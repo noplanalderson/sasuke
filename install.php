@@ -1,6 +1,6 @@
 <?php
 define('BASEPATH',TRUE);
-define('SASUKE_VERSION', 'v1.0');
+define('SASUKE_VERSION', 'v2.0');
 define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
 ini_set('display_errors', 0);
@@ -353,19 +353,20 @@ else
                                     
 								    <form action="" id="db_config" method="post" class="login-form">
 
-								    	<label>Database Host</label>
+								    	<label>Database Host *</label>
 										<input type="text" id="db_host" name="db_host" value="localhost" placeholder="DB Host" class="form-control" required="required"/>
 
-								    	<label>Database User</label>
+								    	<label>Database User *</label>
 										<input type="text" id="db_user" name="db_user" placeholder="DB User" class="form-control" required="required"/>
 
-								    	<label>Database Password</label>
-										<input type="password" id="db_passwd" name="db_passwd" placeholder="DB Password" class="form-control" required="required"/>
+								    	<label>Database Password *</label>
+										<input type="password" id="db_passwd" name="db_passwd" placeholder="DB Password" class="form-control" />
 
-								    	<label>Database Name</label>
-										<input type="text" id="db_name" name="db_name" placeholder="DB Name" class="form-control" required="required"/>
+								    	<label>Database Name *</label>
+										<input type="text" id="db_name" name="db_name" placeholder="DB Name" class="form-control mb-3" required="required"/>
 
-										<button type="submit" id="install" class="btn btn-block btn-primary mt-5" name="install">Install!</button>
+										<small class="text-danger">* Wajib Diisi</small>
+										<button type="submit" id="install" class="btn btn-block btn-primary mt-3" name="install">Install!</button>
 								    </form>
                                 </div>
                             </div>

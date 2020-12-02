@@ -23,9 +23,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-striped table-bordered" id="tblUser" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
+                                            <th>Nama Pegawai</th>
+                                            <th>NIP</th>
                                             <th>Username</th>
                                             <th>Tipe User</th>
                                             <th>Email</th>
@@ -34,26 +36,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <?php 
-                                    if(!empty($users))
-                                    {
-                                        foreach ($users as $user) :?>
+                                    <?php foreach ($users as $user) :?>
                                         <tr>
+                                            <td><?= $user->nama_pegawai ?></td>
+                                            <td><?= $user->nip ?></td>
                                             <td><?= $user->user_name ?></td>
                                             <td><?= $user->user_type ?></td>
                                             <td><?= $user->user_email ?></td>
                                             <td><?= $user->is_active ?></td>
                                             <td>
-                                                <?= button($btn_edit, FALSE, 'a', 'href="'.base_url($btn_edit->link_menu).'/'.encrypt($user->id_user).'" class="btn btn-small btn-warning"');?>
-                                                <?= button($btn_del, FALSE, 'a', 'href="'.base_url($btn_del->link_menu).'/'.encrypt($user->id_user).'" class="btn btn-small btn-danger" onclick="return confirm(\'Anda Yakin Ingin Menghapus User?\')"');?>
+                                                <?= button($btn_edit, FALSE, 'a', 'href="'.base_url($btn_edit->link_menu).'/'.encrypt($user->id_user).'" class="btn btn-sm btn-warning"');?>
+
+                                                <?= button($btn_del, FALSE, 'a', 'href="'.base_url($btn_del->link_menu).'/'.encrypt($user->id_user).'" class="btn btn-sm btn-danger" onclick="return confirm(\'Anda Yakin Ingin Menghapus User?\')"');?>
+
+                                                <?php $action = ($user->is_active == TRUE) ? 'deaktivasi' : 'aktivasi';?>
+
+                                                <?= button($btn_status, FALSE, 'a', 'href="'.base_url($btn_status->link_menu).'/'.$action.'/'.encrypt($user->id_user).'" class="btn btn-sm btn-secondary" onclick="return confirm(\'Anda Yakin Ingin '.$action.' User?\')"');?>
                                             </td>
                                         </tr>
-                                        <?php endforeach;
-                                    }
-                                    else
-                                    {
-                                        echo '<tr class="text-center"><td colspan="5">Tidak ada Data</td></tr>';
-                                    }?>
+                                        <?php endforeach;?>
                                     </tbody>
                                 </table>
                             </div>

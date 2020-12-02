@@ -25,9 +25,9 @@ class Skmk_m extends CI_Model {
 
 	public function getSKMK()
 	{
-		$this->db->select('a.no_skmk, a.nama_pelapor, b.nama_terlapor, b.tgl_meninggal, c.nama_pejabat');
+		$this->db->select('a.no_skmk, a.nama_pelapor, b.nama_terlapor, b.tgl_meninggal, c.nama_pegawai');
 		$this->db->join('tb_terlapor b', 'a.id_pelapor = b.id_pelapor', 'inner');
-		$this->db->join('tb_pejabat c', 'a.id_pejabat = c.id_pejabat', 'left');
+		$this->db->join('tb_user c', 'a.id_user = c.id_user', 'left');
 		$this->db->order_by('a.id_pelapor', 'asc');
 		$this->db->order_by('b.tgl_meninggal', 'asc');
 		return $this->db->get('tb_pelapor a')->result();
@@ -78,12 +78,20 @@ class Skmk_m extends CI_Model {
 			date_format(b.tgl_meninggal, "%d %M %Y") tgl_meninggal,
 			date_format(b.tgl_meninggal, "%H:%i") jam_meninggal,
 			b.lokasi_meninggal,
-			c.nama_pejabat, c.nip, d.nama_jabatan');
+			c.nama_pegawai, c.nip, d.user_type');
 		$this->db->join('tb_terlapor b', 'a.id_pelapor = b.id_pelapor', 'inner');
-		$this->db->join('tb_pejabat c', 'a.id_pejabat = c.id_pejabat', 'left');
-		$this->db->join('tb_jabatan d', 'c.id_jabatan = d.id_jabatan', 'left');
+		$this->db->join('tb_user c', 'a.id_user = c.id_user', 'left');
+		$this->db->join('tb_user_type d', 'c.id_type = d.id_type', 'inner');
 		$this->db->where('md5(a.no_skmk)', verify($id));
 		return $this->db->get('tb_pelapor a')->row();
+	}
+
+	public function getPegawai()
+	{
+		$this->db->select('a.id_user, a.nama_pegawai, b.user_type');
+		$this->db->join('tb_user_type b', 'a.id_type = b.id_type', 'inner');
+		$this->db->order_by('a.nama_pegawai', 'asc');
+		return $this->db->get('tb_user a')->result();
 	}
 }
 

@@ -33,6 +33,32 @@ class Akun_m extends CI_Model {
 		$this->db->where('md5(id_user)', verify($id));
 		return $this->db->update('tb_user', $object) ? true : false;
 	}
+
+	public function cekUser($user)
+	{
+		$this->db->select('user_name');
+		$this->db->where('user_email', $user);
+		$this->db->or_where('md5(user_name)', verify($user));
+		return $this->db->get('tb_user', 1);
+	}
+
+	public function kodePemulihan($email, $kode)
+	{
+		$this->db->where('user_email', $email);
+		return $this->db->update('tb_user', ['kode_pemulihan' => $kode]) ? true : false;
+	}
+
+	public function cekKodePemulihan($kode)
+	{
+		$this->db->where('kode_pemulihan', $kode);
+		return $this->db->get('tb_user')->num_rows();
+	}
+
+	public function updatePassword($kode, $password)
+	{
+		$this->db->where('kode_pemulihan', $kode);
+		return $this->db->update('tb_user', ['user_password' => $password]) ? true : false;
+	}
 }
 
 /* End of file akun_m.php */

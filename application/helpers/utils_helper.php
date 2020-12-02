@@ -237,18 +237,16 @@ function verify($string)
 function hash_generator($str, $key)
 {
 	$nonce = random_bytes(SODIUM_CRYPTO_SECRETBOX_NONCEBYTES);
-	$ciphertext = sodium_crypto_secretbox($str, $nonce, base64_decode($key));
+	$ciphertext = sodium_crypto_secretbox($str, $nonce, $key);
 
-	return base64_encode($nonce . $ciphertext);
+	return $nonce . $ciphertext;
 }
 
 function hash_unbox($cipher, $key)
 {
-	$decoded = base64_decode(rawurldecode($cipher));
-
-	$nonce = mb_substr($decoded, 0, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES, '8bit');
-	$ciphertext = mb_substr($decoded, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES, null, '8bit');
-	return sodium_crypto_secretbox_open($ciphertext, $nonce, base64_decode($key));
+	$nonce = mb_substr($cipher, 0, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES, '8bit');
+	$ciphertext = mb_substr($cipher, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES, null, '8bit');
+	return sodium_crypto_secretbox_open($ciphertext, $nonce, $key);
 }
 
 function random_char($length = 16)
@@ -288,4 +286,53 @@ function button($button = [], $label = TRUE, $mode = 'a', $attr = NULL)
 			return '<'.$mode.' '.$attr.'><i class="'.$button->icon_menu.'"></i></'.$mode.'>';
 		}
 	}
+}
+
+function passwordHash($plaintext)
+{
+	if (version_compare(PHP_VERSION, '7.3', '>='))
+	{
+		return password_hash($plaintext, PASSWORD_ARGON2ID);
+	}
+	else
+	{
+		return password_hash($plaintext, PASSWORD_DEFAULT);
+	}
+}
+
+/**
+ * Encode data to Base64URL
+ * @param string $data
+ * @return boolean|string
+ */
+function base64url_encode($data)
+{
+  // First of all you should encode $data to Base64 string
+  $b64 = base64_encode($data);
+
+  // Make sure you get a valid result, otherwise, return FALSE, as the base64_encode() function do
+  if ($b64 === false) {
+    return false;
+  }
+
+  // Convert Base64 to Base64URL by replacing “+” with “-” and “/” with “_”
+  $url = strtr($b64, '+/', '-_');
+
+  // Remove padding character from the end of line and return the Base64URL result
+  return rtrim($url, '=');
+}
+
+/**
+ * Decode data from Base64URL
+ * @param string $data
+ * @param boolean $strict
+ * @return boolean|string
+ */
+function base64url_decode($data, $strict = false)
+{
+  // Convert Base64URL to Base64 by replacing “-” with “+” and “_” with “/”
+  $b64 = strtr($data, '-_', '+/');
+
+  // Decode Base64 string and return the original data
+  return base64_decode($b64, $strict);
 }

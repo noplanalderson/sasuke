@@ -20,84 +20,70 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 
                             <div class="row">
                                 <div class="col-md-2">
-                                    <label for="nomor">Nomor</label>
+                                    <label for="nomor">Nomor Surat *</label>
+                                </div>
+                                <div class="col-md-3">
                                     <input type="number" id="nomor" class="form-control" name="nomor" value="<?= empty($value['id_pelapor']) ? sprintf("%03d", $nomor) : $value['id_pelapor'];?>" required="required">
                                 </div>
-                                <div class="col-md-4">
-                                    <label for="no_skmk">No. SKMK</label>
+
+                                <div class="col-md-7">
                                     <input type="text" id="no_skmk" class="form-control" name="no_skmk" readonly="readonly" value="SKMK-<?= $kode_instansi->kode_instansi ?>/<?= format_bulan(date('Y-m-d'), 'ROMAWI');?>/<?= date('Y');?>">
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="id_pejabat">Pejabat Penanda Tangan</label>
-                                    <select id="id_pejabat" class="form-control" name="id_pejabat" required="required">
-                                        <option value="">Pilih Pejabat</option>
-                                        <?php foreach ($pejabat as $pjb) :?>
-                                            <option value="<?= $pjb->id_pejabat ?>" 
-                                            <?php if(empty(set_value('id_pejabat')) ? $value['id_pejabat'] : set_value('id_pejabat') == $pjb->id_pejabat) :?> selected="selected"<?php endif;?>>
-                                            <?= $pjb->nama_pejabat ?>
-                                                
-                                            </option>
-                                        
-                                        <?php endforeach;?>
-                                    </select>
                                 </div>
                             </div>
                             
-                            <div class="row my-3">
-                                <div class="col-md-6">
-                                    <label for="nama_pelapor">Nama Pelapor</label>
-                                    <input type="text" id="nama_pelapor" class="form-control" name="nama_pelapor" required="required" value="<?= $value['nama_pelapor'];?>">
+                            <div class="row mt-3">
+                                <div class="col-md-2">
+                                    <label for="nama_pelapor">Nama Pelapor *</label>
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="nama_terlapor">Nama Terlapor</label>
-                                    <input type="text" id="nama_terlapor" class="form-control" name="nama_terlapor"required="required" value="<?= $value['nama_terlapor'];?>">
+                                <div class="col-md-10">
+                                    <input type="text" id="nama_pelapor" class="form-control" name="nama_pelapor" placeholder="Nama Pelapor" required="required" value="<?= $value['nama_pelapor'];?>">
                                 </div>
                             </div>
 
-                            <div class="row my-3">
-                                <div class="col-md-6">
-                                    <label for="no_ktp_pelapor">No. KTP Pelapor</label>
-                                    <input type="text" id="no_ktp_pelapor" class="form-control" name="no_ktp_pelapor"required="required" value="<?= $value['no_ktp_pelapor'];?>">
+                            <div class="row mt-3">
+                                <div class="col-md-2">
+                                    <label for="tempat_lahir_pelapor">Tempat/Tgl Lahir Pelapor *</label>
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="no_ktp_terlapor">No. KTP Terlapor</label>
-                                    <input type="text" id="no_ktp_terlapor" class="form-control" name="no_ktp_terlapor"required="required" value="<?= $value['no_ktp_terlapor'];?>">
+                                <div class="col-md-5">
+                                    <input type="text" id="tempat_lahir_pelapor" class="form-control" placeholder="Tempat Lahir" name="tempat_lahir_pelapor" required="required" value="<?= $value['tempat_lahir_pelapor'];?>">
                                 </div>
-                            </div>
-
-                            <div class="row my-3">
-                                <div class="col-md-6">
-                                    <label for="tempat_lahir_pelapor">Tempat Lahir Pelapor</label>
-                                    <input type="text" id="tempat_lahir_pelapor" class="form-control" name="tempat_lahir_pelapor"required="required" value="<?= $value['tempat_lahir_pelapor'];?>">
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="tempat_lahir_terlapor">Tempat Lahir Terlapor</label>
-                                    <input type="text" id="tempat_lahir_terlapor" class="form-control" name="tempat_lahir_terlapor"required="required" value="<?= $value['tempat_lahir_terlapor'];?>">
-                                </div>
-                            </div>
-
-                            <div class="row my-3">
-                                <div class="col-md-6">
-                                    <label for="tgl_lahir_pelapor">Tanggal Lahir Pelapor</label>
+                                <div class="col-md-5">
                                     <input type="date" id="tgl_lahir_pelapor" class="form-control" name="tgl_lahir_pelapor"required="required" value="<?= $value['tgl_lahir_pelapor'];?>">
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="tgl_lahir_terlapor">Tanggal Lahir Terlapor</label>
-                                    <input type="date" id="tgl_lahir_terlapor" class="form-control" name="tgl_lahir_terlapor"required="required" value="<?= $value['tgl_lahir_terlapor'];?>">
+                            </div>
+
+                            <div class="row mt-3">
+                                <div class="col-md-2">
+                                    <label for="pekerjaan_pelapor">Pekerjaan Pelapor *</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" id="pekerjaan_pelapor" class="form-control" name="pekerjaan_pelapor" placeholder="Pekerjaan Pelapor" value="<?= $value['pekerjaan_pelapor'];?>">
                                 </div>
                             </div>
 
-                            <div class="row my-3">
-                                <div class="col-md-4">
-                                    <label for="pekerjaan_pelapor">Pekerjaan Pelapor</label>
-                                    <input type="text" id="pekerjaan_pelapor" class="form-control" name="pekerjaan_pelapor" value="<?= $value['pekerjaan_pelapor'];?>">
+                            <div class="row mt-3">
+                                <div class="col-md-2">
+                                    <label for="alamat_pelapor">Alamat Pelapor *</label>
                                 </div>
-                                <div class="col-md-4">
-                                    <label for="pekerjaan_terlapor">Pekerjaan Terlapor</label>
-                                    <input type="text" id="pekerjaan_terlapor" class="form-control" name="pekerjaan_terlapor" value="<?= $value['pekerjaan_terlapor'];?>">
+                                <div class="col-md-10">
+                                    <textarea id="alamat_pelapor" name="alamat_pelapor" class="form-control" required="required"><?= $value['alamat_pelapor'];?></textarea>
                                 </div>
-                                <div class="col-md-4">
-                                    <label for="hubungan">Hubungan dengan Terlapor</label>
+                            </div>
+
+                            <div class="row mt-3">
+                                <div class="col-md-2">
+                                    <label for="no_ktp_pelapor">No. KTP Pelapor *</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" id="no_ktp_pelapor" class="form-control" name="no_ktp_pelapor" placeholder="0000000000000000" required="required" value="<?= $value['no_ktp_pelapor'];?>">
+                                </div>
+                            </div>
+
+                            <div class="row mt-3">
+                                <div class="col-md-2">
+                                    <label for="hubungan">Hubungan dengan Terlapor *</label>
+                                </div>
+                                <div class="col-md-10">
                                     <select id="hubungan" class="form-control" name="hubungan" required="required">
                                         <option value="">Pilih Hubungan</option>
                                         <option value="ISTRI" <?php if($value['hubungan'] == 'ISTRI'):?>selected="selected"<?php endif;?>>ISTRI</option>
@@ -117,37 +103,107 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                                 </div>
                             </div>
 
-                            <div class="row my-3">
-                                <div class="col-md-6">
-                                    <label for="alamat_pelapor">Alamat Pelapor</label>
-                                    <textarea id="alamat_pelapor" name="alamat_pelapor" class="form-control" required="required"><?= $value['alamat_pelapor'];?></textarea>
+                            <div class="clearfix"></div>
+                            
+                            <div class="row mt-3">
+                                <div class="col-md-2">
+                                    <label for="nama_terlapor">Nama Terlapor *</label>
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="alamat_terlapor">Alamat Terlapor</label>
+                                <div class="col-md-10">
+                                    <input type="text" id="nama_terlapor" class="form-control" name="nama_terlapor" placeholder="Nama Terlapor" required="required" value="<?= $value['nama_terlapor'];?>">
+                                </div>
+                            </div>
+
+                            <div class="row mt-3">
+                                <div class="col-md-2">
+                                    <label for="tempat_lahir_terlapor">Tempat/Tgl Lahir Terlapor *</label>
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="text" id="tempat_lahir_terlapor" class="form-control" name="tempat_lahir_terlapor" placeholder="Tempat Lahir" required="required" value="<?= $value['tempat_lahir_terlapor'];?>">
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="date" id="tgl_lahir_terlapor" class="form-control" name="tgl_lahir_terlapor"required="required" value="<?= $value['tgl_lahir_terlapor'];?>">
+                                </div>
+                            </div>
+
+                            <div class="row mt-3">
+                                <div class="col-md-2">
+                                    <label for="pekerjaan_terlapor">Pekerjaan Terlapor *</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" id="pekerjaan_terlapor" class="form-control" name="pekerjaan_terlapor" placeholder="Pekerjaan" value="<?= $value['pekerjaan_terlapor'];?>">
+                                </div>
+                            </div>
+
+                            <div class="row mt-3">
+                                <div class="col-md-2">
+                                    <label for="alamat_terlapor">Alamat Terlapor *</label>
+                                </div>
+                                <div class="col-md-10">
                                     <textarea id="alamat_terlapor" name="alamat_terlapor" class="form-control" required="required"><?= $value['alamat_terlapor'];?></textarea>
                                 </div>
                             </div>
 
-                            <div class="row my-3">
-                                <div class="col-md-6">
-                                    <label for="tgl_meninggal">Jam & Tanggal Meninggal</label>
-                                    <input type="text" id="tgl_meninggal" class="form-control" name="tgl_meninggal"required="required" value="<?= $value['tgl_meninggal'];?>">
+                            <div class="row mt-3">
+                                <div class="col-md-2">
+                                    <label for="no_ktp_terlapor">No. KTP Terlapor *</label>
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="lokasi_meninggal">Lokasi Meninggal</label>
-                                    <input type="text" id="lokasi_meninggal" class="form-control" name="lokasi_meninggal"required="required" value="<?= $value['lokasi_meninggal'];?>">
+                                <div class="col-md-10">
+                                    <input type="text" id="no_ktp_terlapor" class="form-control" name="no_ktp_terlapor" placeholder="0000000000000000" required="required" value="<?= $value['no_ktp_terlapor'];?>">
                                 </div>
                             </div>
 
-                            <div class="row my-3">
-                                <div class="col-md-12">
+                            <div class="row mt-3">
+                                <div class="col-md-2">
+                                    <label for="tgl_meninggal">Jam & Tanggal Meninggal *</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" id="tgl_meninggal" class="form-control" name="tgl_meninggal"required="required" value="<?= $value['tgl_meninggal'];?>">
+                                </div>
+                            </div>
+                            
+                            <div class="row mt-3">
+                                <div class="col-md-2">
+                                    <label for="lokasi_meninggal">Lokasi Meninggal *</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" id="lokasi_meninggal" class="form-control" name="lokasi_meninggal" placeholder="Lokasi Meninggal" required="required" value="<?= $value['lokasi_meninggal'];?>">
+                                </div>
+                            </div>
+
+                            <div class="row mt-3">
+                                <div class="col-md-2">
+                                    <label for="id_user">Penanda Tangan *</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <select id="id_user" class="form-control" name="id_user" required="required">
+                                        <option value="">Pilih Pegawai</option>
+                                        <?php foreach ($pegawai as $peg) :?>
+                                            <option value="<?= $peg->id_user ?>" 
+                                            <?php if(empty(set_value('id_user')) ? $value['id_user'] : set_value('id_user') == $peg->id_user) :?> selected="selected"<?php endif;?>>
+                                            <?= $peg->nama_pegawai ?> - <?= $peg->user_type ?>
+                                                
+                                            </option>
+                                        
+                                        <?php endforeach;?>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row mt-3">
+                                <div class="col-md-2">
                                     <label for="tembusan">Tembusan (Pisahkan dengan Koma)</label>
+                                </div>
+                                <div class="col-md-10">
                                     <input type="text" id="tembusan" class="form-control" name="tembusan" value="<?= $value['tembusan'];?>">
                                 </div>
                             </div>
-                            <input id="submit" type="submit" class="my-3 btn btn-small btn-success" name="submit" value="Submit">
-                            
-                            <input type="reset" class="my-3 btn btn-small btn-primary" value="Reset">
+
+                            <div class="text-right">
+                                <input type="reset" class="my-3 btn btn-small btn-primary" value="Reset">
+                                
+                                <input id="submit" type="submit" class="my-3 btn btn-small btn-success" name="submit" value="Submit">
+                            </div>
                             </form>
                         </div>
                     </div>

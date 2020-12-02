@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                                             <td><?= $skmk->nama_pelapor ?></td>
                                             <td><?= $skmk->nama_terlapor ?></td>
                                             <td><?= $skmk->tgl_meninggal ?></td>
-                                            <td><?= $skmk->nama_pejabat ?></td>
+                                            <td><?= $skmk->nama_pegawai ?></td>
                                             <td>
                                                 <?= button($btn_detail, FALSE, 'a', 'href="'.base_url($btn_detail->link_menu).'/'.encrypt($skmk->no_skmk).'" class="btn btn-small btn-primary" target="_blank"');?>
                                                 <?= button($btn_edit, FALSE, 'a', 'href="'.base_url($btn_edit->link_menu).'/'.encrypt($skmk->no_skmk).'" class="btn btn-small btn-warning"');?>

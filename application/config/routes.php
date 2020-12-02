@@ -54,6 +54,7 @@ $route['default_controller'] = 'login';
 $route['tambah-user'] = 'manajemen_user/tambah';
 $route['edit-user/(:any)'] = 'manajemen_user/edit/$1';
 $route['hapus-user/(:any)'] = 'manajemen_user/hapus/$1';
+$route['status-user/(:any)/(:any)'] = 'manajemen_user/status/$1/$2';
 
 $route['get-role'] = 'manajemen_akses/get_role';
 $route['tambah-role'] = 'manajemen_akses/tambah';
@@ -80,6 +81,8 @@ $route['buat-skmk'] = 'skmk/buat';
 $route['edit-skmk/(:any)'] = 'skmk/edit/$1';
 $route['hapus-skmk/(:any)'] = 'skmk/hapus/$1';
 $route['detail-skmk/(:any)'] = 'skmk/detail/$1';
+
+$route['reset/(:any)'] = 'lupa_password/reset/$1';
 
 $route['konfigurasi'] = 'konfigurasi/konfigurasi/index';
 $route['konfigurasi/instansi'] = 'konfigurasi/konfigurasi/instansi';

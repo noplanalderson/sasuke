@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h6 mb-4 text-gray-800"><div class="alert alert-success" role="alert">Login Berhasil. Selamat Datang <?= $this->user->user_name ?>!</div></h1>
+                    <h1 class="h6 mb-4 text-gray-800"><div class="alert alert-success" role="alert">Login Berhasil. Selamat Datang <?= $this->user->nama_pegawai ?>!</div></h1>
 
                 </div>
                 <!-- /.container-fluid -->
