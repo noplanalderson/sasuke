@@ -21,6 +21,7 @@ Perubahan dan Fitur Baru
 -	Perbaikan skema login
 -	Perubahan tampilan form pembuatan skmk
 -	Penambahan Fitur Lupa Password
+-	Perbaikan Bug
 
 *******************
 Kebutuhan Server
