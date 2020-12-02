@@ -15,7 +15,12 @@ Ini adalah Rilis Kedua dari SASUKE `Download SASUKE v2.0 di sini
 Perubahan dan Fitur Baru
 **************************
 
-Belum ada Perubahan dan Penambahan Fitur Baru
+- 	Perubahan Struktur Basis Data
+-	Penambahan dan Pengurangan beberapa Menu
+-	Menggabungkan Tabel User dan Tabel Pegawai
+-	Perbaikan skema login
+-	Perubahan tampilan form pembuatan skmk
+-	Penambahan Fitur Lupa Password
 
 *******************
 Kebutuhan Server
