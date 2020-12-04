@@ -9,7 +9,7 @@ Informasi Rilis
 *******************
 
 `Download SASUKE versi terbaru di sini
-<https://github.com/noplanalderson/sasuke/archive/v2.0.zip>`_.
+<https://github.com/noplanalderson/sasuke/archive/v2.0.1.zip>`_.
 
 **************************
 Perubahan dan Fitur Baru
