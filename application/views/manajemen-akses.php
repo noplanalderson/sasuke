@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                                     <h6 class="m-0 font-weight-bold text-primary">Daftar Akses</h6>
                                 </div>
                                 <div class="col-md-2">
-                                    <?= button($btn_add, TRUE, 'a', 'href="#" class="btn btn-small tambah-akses btn-primary" data-toggle="modal" data-target="#aksesModal"');?>
+                                    <?= button($btn_add, TRUE, 'a', 'class="btn btn-small tambah-akses btn-primary" data-toggle="modal" data-target="#aksesModal"');?>
                                 </div>
                             </div>
                         </div>
@@ -36,8 +36,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                                             <td><?= $akses->user_type ?></td>
                                             <td><?= $this->akses_m->getRolesByID($akses->id_type); ?></td>
                                             <td>
-                                                <?= button($btn_edit, FALSE, 'a', 'href="#" class="btn btn-small btn-warning edit-akses" data-toggle="modal" data-target="#aksesModal" data-id="'.encrypt($akses->id_type).'"');?>
-                                                <?= button($btn_del, FALSE, 'a', 'href="'.base_url($btn_del->link_menu).'/'.encrypt($akses->id_type).'" class="btn btn-small btn-danger" onclick="return confirm(\'Anda Yakin Ingin Menghapus Tipe User?\')"');?>
+                                                <?= button($btn_edit, FALSE, 'a', 'class="btn btn-small btn-warning edit-akses" data-toggle="modal" data-target="#aksesModal" data-id="'.encrypt($akses->id_type).'"');?>
+                                                <?= button($btn_del, FALSE, 'a', '" class="btn btn-small btn-danger" onclick="return confirm(\'Anda Yakin Ingin Menghapus Tipe User?\')"', encrypt($akses->id_type));?>
                                             </td>
                                         </tr>
                                         <?php 

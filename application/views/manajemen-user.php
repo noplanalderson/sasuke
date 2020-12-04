@@ -16,8 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                                     <h6 class="m-0 font-weight-bold text-primary">Daftar User</h6>
                                 </div>
                                 <div class="col-md-2">
-                                    <?= button($btn_add, TRUE, 'a', 'href="'.base_url($btn_add->link_menu).'" class="btn btn-small btn-primary"');?>
-                                    <!-- <button href="<?= base_url('tambah-user');?>" class="btn btn-small btn-primary">Tambah User</button> -->
+                                    <?= button($btn_add, TRUE, 'a', '" class="btn btn-small btn-primary"');?>
                                 </div>
                             </div>
                         </div>
@@ -45,13 +44,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                                             <td><?= $user->user_email ?></td>
                                             <td><?= $user->is_active ?></td>
                                             <td>
-                                                <?= button($btn_edit, FALSE, 'a', 'href="'.base_url($btn_edit->link_menu).'/'.encrypt($user->id_user).'" class="btn btn-sm btn-warning"');?>
+                                                <?= button($btn_edit, FALSE, 'a', '" class="btn btn-sm btn-warning"', encrypt($user->id_user));?>
 
-                                                <?= button($btn_del, FALSE, 'a', 'href="'.base_url($btn_del->link_menu).'/'.encrypt($user->id_user).'" class="btn btn-sm btn-danger" onclick="return confirm(\'Anda Yakin Ingin Menghapus User?\')"');?>
+                                                <?= button($btn_del, FALSE, 'a', '" class="btn btn-sm btn-danger" onclick="return confirm(\'Anda Yakin Ingin Menghapus User?\')"', encrypt($user->id_user));?>
 
-                                                <?php $action = ($user->is_active == TRUE) ? 'deaktivasi' : 'aktivasi';?>
+                                                <?php $action = ($user->is_active == 'TRUE') ? 'deaktivasi' : 'aktivasi';?>
 
-                                                <?= button($btn_status, FALSE, 'a', 'href="'.base_url($btn_status->link_menu).'/'.$action.'/'.encrypt($user->id_user).'" class="btn btn-sm btn-secondary" onclick="return confirm(\'Anda Yakin Ingin '.$action.' User?\')"');?>
+                                                <?= button($btn_status, FALSE, 'a', '" class="btn btn-sm btn-secondary" onclick="return confirm(\'Anda Yakin Ingin '.$action.' User?\')"', $action.'/'.encrypt($user->id_user));?>
                                             </td>
                                         </tr>
                                         <?php endforeach;?>
