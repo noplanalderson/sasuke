@@ -273,17 +273,26 @@ function get_real_ip()
    return $ip;
 }
 
-function button($button = [], $label = TRUE, $mode = 'a', $attr = NULL)
+function button($button = [], $label = TRUE, $mode = 'a', $attr = NULL, $link_override = NULL)
 {
 	if(!empty($button))
 	{
-		if($label)
+		if(!is_null($link_override))
 		{
-			return '<'.$mode.' '.$attr.'><i class="'.$button->icon_menu.'"></i> '.$button->label_menu.'</'.$mode.'>';
+			$link_menu = base_url($button->link_menu.'/'.$link_override);
 		}
 		else
 		{
-			return '<'.$mode.' '.$attr.'><i class="'.$button->icon_menu.'"></i></'.$mode.'>';
+			$link_menu = base_url($button->link_menu);
+		}
+
+		if($label)
+		{
+			return '<'.$mode.' href="'.$link_menu.'" '.$attr.'><i class="'.$button->icon_menu.'"></i> '.$button->label_menu.'</'.$mode.'>';
+		}
+		else
+		{
+			return '<'.$mode.' href="'.$link_menu.'" '.$attr.'><i class="'.$button->icon_menu.'"></i></'.$mode.'>';
 		}
 	}
 }
