@@ -134,7 +134,7 @@ class Akses_m extends CI_Model {
 	public function hapusAkses($id)
 	{
 		$this->db->where('md5(id_type)', verify($id));
-		return $this->db->delete('tb_user_type');
+		return $this->db->delete('tb_user_type') ? true : false;
 	}
 }
 
