@@ -35,9 +35,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                                             <td><?= $skmk->tgl_meninggal ?></td>
                                             <td><?= $skmk->nama_pegawai ?></td>
                                             <td>
-                                                <?= button($btn_detail, FALSE, 'a', 'href="'.base_url($btn_detail->link_menu).'/'.encrypt($skmk->no_skmk).'" class="btn btn-small btn-primary" target="_blank"');?>
-                                                <?= button($btn_edit, FALSE, 'a', 'href="'.base_url($btn_edit->link_menu).'/'.encrypt($skmk->no_skmk).'" class="btn btn-small btn-warning"');?>
-                                                <?= button($btn_del, FALSE, 'a', 'href="'.base_url($btn_del->link_menu).'/'.encrypt($skmk->no_skmk).'" class="btn btn-small btn-danger" onclick="return confirm(\'Anda Yakin Ingin Menghapus SKMK?\')"');?>
+                                                <?= button($btn_detail, FALSE, 'a', '" class="btn btn-small btn-primary" target="_blank"', encrypt($skmk->no_skmk));?>
+                                                <?= button($btn_edit, FALSE, 'a', '" class="btn btn-small btn-warning"', encrypt($skmk->no_skmk));?>
+                                                <?= button($btn_del, FALSE, 'a', '" class="btn btn-small btn-danger" onclick="return confirm(\'Anda Yakin Ingin Menghapus SKMK?\')"', encrypt($skmk->no_skmk));?>
                                             </td>
                                         </tr>
                                         <?php endforeach;?>
