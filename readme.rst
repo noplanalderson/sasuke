@@ -8,7 +8,7 @@ SASUKE (Sistem Aplikasi Surat Kematian) adalah sebuah aplikasi yang memudahkan p
 Informasi Rilis
 *******************
 
-Ini adalah Rilis Kedua dari SASUKE `Download SASUKE v2.0 di sini
+`Download SASUKE versi terbaru di sini
 <https://github.com/noplanalderson/sasuke/archive/v2.0.zip>`_.
 
 **************************
@@ -27,7 +27,8 @@ Perubahan dan Fitur Baru
 Kebutuhan Server
 *******************
 
-Direkomendasikan untuk memakai PHP versi 7.3 atau terbaru.
+-	Database MySQL atau MariaDB
+-	Direkomendasikan untuk memakai PHP versi 7.3 atau terbaru.
 
 ************
 Instalasi
@@ -39,7 +40,7 @@ Instalasi
 -	`Letakkan Direktori utama aplikasi SASUKE ke dalam direktori root web server anda`_
 -	`Akses aplikasi SASUKE dari browser dan ikuti langkah instalasi`_
 -	`Jangan lupa untuk mengubah konfigurasi email di dalam direktori sasuke/application/config/email.php`_
--	`Konfigurasi email wajib karena digunakan untuk mengirim password user saat membuat user baru`_
+-	`Konfigurasi email wajib karena digunakan untuk mengirim link reset password user`_
 
 *********
 Resources
