@@ -1,6 +1,6 @@
 <?php
 define('BASEPATH',TRUE);
-define('SASUKE_VERSION', 'v2.0');
+define('SASUKE_VERSION', 'v2.0.1');
 define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
 ini_set('display_errors', 0);
