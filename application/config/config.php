@@ -23,13 +23,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$protocol = (isset($_SERVER['HTTPS']) &&
+$base_url = (isset($_SERVER['HTTPS']) &&
             ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
             isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
             $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') ? 'https://' : 'http://';
-$location = explode(DIRECTORY_SEPARATOR, FCPATH);
-$location = array_values(array_slice($location, -2))[0]; 
-$config['base_url'] = $protocol.$_SERVER['HTTP_HOST'].'/'.$location;
+
+$tmpURL = dirname(__FILE__);
+
+$tmpURL = str_replace(chr(92),'/',$tmpURL);
+
+$tmpURL = str_replace($_SERVER['DOCUMENT_ROOT'],'',$tmpURL);
+
+$tmpURL = ltrim($tmpURL,'/');
+
+$tmpURL = rtrim($tmpURL, '/');
+
+$tmpURL = (strpos($tmpURL,'/')) ? explode('/',$tmpURL)[0] : $tmpURL;
+
+$base_url .= ($tmpURL !== $_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'].'/'.$tmpURL.'/' : $tmpURL.'/';
+
+$config['base_url'] = $base_url;
 
 /*
 |--------------------------------------------------------------------------
