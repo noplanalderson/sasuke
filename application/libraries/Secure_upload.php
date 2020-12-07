@@ -8,8 +8,8 @@ defined('BASEPATH') OR die('No direct script access allowed.');
  * https://github.com/noplanalderson/ci_secure_upload.git
  * 
  * CI SECURE IMAGE UPLOADER is a library specially made for Codeigniter version 3.x.
- * The purpose of making this library is to ensure that images uploaded by users are free of malicious code 
- * that is created to hack servers or applications.
+ * The purpose of making this library is to ensure that images uploaded by users 
+ * are free from malicious code that is created to hack servers or applications.
  * 
  * Find out how an image can run a malicious script please visit the following site:
  * 
