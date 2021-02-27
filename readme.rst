@@ -8,20 +8,14 @@ SASUKE (Sistem Aplikasi Surat Kematian) adalah sebuah aplikasi yang memudahkan p
 Informasi Rilis
 *******************
 
-`Download SASUKE versi terbaru di sini
+`Download SASUKE versi terbaru (v2.0.2) di sini
 <https://codeload.github.com/noplanalderson/sasuke/zip/v2.0.2>`_.
 
 **************************
-Perubahan dan Fitur Baru
+Perubahan dan Fitur Baru v2.0.2
 **************************
 
-- 	Perubahan Struktur Basis Data
--	Penambahan dan Pengurangan beberapa Menu
--	Menggabungkan Tabel User dan Tabel Pegawai
--	Perbaikan skema login
--	Perubahan tampilan form pembuatan skmk
--	Penambahan Fitur Lupa Password
--	Perbaikan Bug
+-	Perbaikan Bug pada Penomoran Otomatis saat membuat SKMK setelah menghapus data SKMK lainnya
 
 *******************
 Kebutuhan Server
