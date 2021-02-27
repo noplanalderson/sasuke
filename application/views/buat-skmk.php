@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                                     <label for="nomor">Nomor Surat *</label>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="number" id="nomor" class="form-control" name="nomor" value="<?= empty($value['id_pelapor']) ? sprintf("%03d", $nomor) : $value['id_pelapor'];?>" required="required">
+                                    <input type="number" id="nomor" class="form-control" name="nomor" value="<?= empty($value['id_pelapor']) ? sprintf("%03d", $nomor) : sprintf("%03d", $value['id_pelapor']);?>" required="required">
                                 </div>
 
                                 <div class="col-md-7">

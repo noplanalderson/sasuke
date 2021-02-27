@@ -286,11 +286,8 @@ class Skmk extends Sasuke {
 
 			if ($this->form_validation->run() == TRUE)
 			{	
-				$id_skmk = $post['nomor'];
-				$id_skmk += $post['nomor'];
-
 				$pelapor = array(
-					'id_pelapor' => $id_skmk,
+					'id_pelapor' => $post['nomor'],
 					'no_skmk' => sprintf("%03d",$post['nomor']).'/'.$post['no_skmk'],
 					'id_user' => $post['id_user'],
 					'nama_pelapor' => $post['nama_pelapor'],

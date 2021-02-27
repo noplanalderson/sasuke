@@ -11,7 +11,9 @@ class Skmk_m extends CI_Model {
 	public function getNomor()
 	{
 		$this->db->select('id_pelapor');
-		return $this->db->get('tb_pelapor')->num_rows() + 1;
+		$this->db->order_by('id_pelapor', 'desc');
+		$id = $this->db->get('tb_pelapor', 1)->row();
+		return $id->id_pelapor + 1;
 	}
 
 	public function buatSkmk($pelapor, $terlapor)
