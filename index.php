@@ -53,9 +53,11 @@
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
-	define('SASUKE_VERSION', 'v2.0.1');
+	define('SASUKE_VERSION', 'v3.0');
 	
-	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'production');
+	// $_SERVER['CI_ENV'] = 'production';
+
+	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
 /*
  *---------------------------------------------------------------
@@ -116,7 +118,7 @@ switch (ENVIRONMENT)
  *
  * NO TRAILING SLASH!
  */
-	$application_folder = 'application';
+	$application_folder = 'app';
 
 /*
  *---------------------------------------------------------------
