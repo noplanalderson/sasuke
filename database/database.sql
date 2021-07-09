@@ -52,6 +52,7 @@ DROP TABLE IF EXISTS `tb_user_type`;
 CREATE TABLE `tb_user_type` (
   `id_type` int(1) NOT NULL AUTO_INCREMENT,
   `user_type` varchar(100) NOT NULL,
+  `index_page` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_type`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -62,7 +63,7 @@ CREATE TABLE `tb_user_type` (
 
 LOCK TABLES `tb_user_type` WRITE;
 /*!40000 ALTER TABLE `tb_user_type` DISABLE KEYS */;
-INSERT INTO `tb_user_type` VALUES (1,'administrator'),(2,'Kepala Puskesmas');
+INSERT INTO `tb_user_type` VALUES (1,'administrator','manajemen-user'),(2,'Kepala Puskesmas','surat-kematian');
 /*!40000 ALTER TABLE `tb_user_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -81,11 +82,11 @@ CREATE TABLE `tb_user` (
   `user_name` varchar(100) NOT NULL,
   `user_password` varchar(255) NOT NULL,
   `user_email` varchar(100) NOT NULL,
-  `kode_pemulihan` varchar(255) DEFAULT NULL,
+  `user_token` varchar(255) DEFAULT NULL,
   `user_picture` varchar(255) DEFAULT NULL,
   `last_login` int(11) DEFAULT NULL,
   `last_ip` varbinary(16) DEFAULT NULL,
-  `is_active` enum('TRUE','FALSE') NOT NULL,
+  `is_active` enum('TRUE','FALSE') DEFAULT 'FALSE',
   PRIMARY KEY (`id_user`),
   KEY `id_type` (`id_type`),
   CONSTRAINT `tb_user_ibfk_3` FOREIGN KEY (`id_type`) REFERENCES `tb_user_type` (`id_type`) ON UPDATE CASCADE
