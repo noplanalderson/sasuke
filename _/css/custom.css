@@ -1,0 +1,170 @@
+.logo-sasuke {
+    width:30%;
+    margin:auto;
+    position:relative;
+    left:35%;
+}
+.sasuke-sidebar {
+    width:50%;
+    color: white;
+    filter: invert(100%);
+    -webkit-filter: invert(100%);
+    position: relative;
+    z-index: -9999;
+}
+.validate {
+    margin-top: 10px
+}
+.invalid-form-error-message {
+    margin-top: 10px;
+    padding: 5px
+}
+.invalid-form-error-message.filled {
+    border-left: 2px solid #E74C3C
+}
+p.parsley-success {
+    color: #468847;
+    background-color: #DFF0D8;
+    border: 1px solid #D6E9C6
+}
+p.parsley-error {
+    color: #B94A48;
+    background-color: #F2DEDE;
+    border: 1px solid #EED3D7
+}
+ul.parsley-errors-list {
+    list-style: none;
+    color: #E74C3C;
+    padding-left: 0
+}
+input.parsley-error,
+textarea.parsley-error,
+select.parsley-error {
+    background: #FAEDEC;
+    border: 1px solid #E85445
+}
+.btn-group .parsley-errors-list {
+    display: none
+}
+
+.wrapper{
+  position: relative;
+  height: 65px;
+  width: 100%;
+}
+
+.wrapper span{
+  position: absolute;
+  right: 15px;
+  top: 30%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+}
+
+.wrapper input:valid ~ span{
+  display: block;
+}
+
+.wrapper span i.hide-btn::before{
+  content: "\f070";
+}
+
+.tagsinput {
+    border: 1px solid #CCC;
+    background: #FFF;
+    padding: 6px 6px 0;
+    width: 300px;
+    overflow-y: auto
+}
+span.tag {
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    display: block;
+    float: left;
+    padding: 5px 9px;
+    text-decoration: none;
+    background: #1ABB9C;
+    color: #F1F6F7;
+    margin-right: 5px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-family: helvetica
+}
+span.tag a {
+    color: #F1F6F7 !important
+}
+.tagsinput span.tag a {
+    font-weight: bold;
+    color: #82ad2b;
+    text-decoration: none;
+    font-size: 11px
+}
+.tagsinput input {
+    width: 80px;
+    margin: 0px;
+    font-family: helvetica;
+    font-size: 13px;
+    border: 1px solid transparent;
+    padding: 3px;
+    background: transparent;
+    color: #000;
+    outline: 0px
+}
+.tagsinput div {
+    display: block;
+    float: left
+}
+.tags_clear {
+    clear: both;
+    width: 100%;
+    height: 0px
+}
+
+hr.batas-kop {
+    overflow: visible; /* For IE */
+    padding: 0;
+    border: none;
+    border-top: medium double #333;
+    color: #333;
+    text-align: center;
+}
+
+.export-btn {
+    margin-right:15px;
+    border-radius:5px;
+    float:right;
+}
+
+.rem-5 {
+    padding:5rem
+}
+
+.table-skmk {
+    font-family:Calibri, sans-serif; 
+    border-collapse: collapse;
+}
+
+.header-pelapor {
+    text-indent:50px;
+    text-align: justify;
+}
+
+.table-lapor {
+    border:none;
+    width:80%;
+    margin-left:10%
+}
+
+.indent-50 {
+    text-indent:50px;
+}
+
+.tanda-tangan {
+    text-indent: 34em;
+}
+
+.mt-min-1 {
+    margin-top: -1rem;
+}

@@ -1,6 +1,6 @@
 <?php
 define('BASEPATH',TRUE);
-define('SASUKE_VERSION', 'v2.0.1');
+define('SASUKE_VERSION', 'v3.0');
 define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
 ini_set('display_errors', 0);
@@ -37,7 +37,7 @@ $location = $protocol.$_SERVER['HTTP_HOST'].'/'.end($location);
 
 function checkDB()
 {
-	include dirname(__FILE__).'/application/config/database.php';
+	include dirname(__FILE__).'/app/config/database.php';
 	$conn = new mysqli($db['default']['hostname'], $db['default']['username'], $db['default']['password']);
 	if(!$conn->connect_error){
 		return $conn->select_db($db['default']['database']) ? true : false;
@@ -220,7 +220,7 @@ class App_installer
 
 	private function _createCfgFile()
 	{
-		$database_cfg = fopen(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'application' . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'database.php', "w");
+		$database_cfg = fopen(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'database.php', "w");
 
 $txt = '<?php
 defined(\'BASEPATH\') OR exit(\'No direct script access allowed\');
@@ -237,7 +237,7 @@ $db[\'default\'] = array(
 	\'dbdriver\' => \'mysqli\',
 	\'dbprefix\' => \'\',
 	\'pconnect\' => FALSE,
-	\'db_debug\' => FALSE,
+	\'db_debug\' => (ENVIRONMENT == \'production\'),
 	\'cache_on\' => FALSE,
 	\'cachedir\' => \'\',
 	\'char_set\' => \'utf8\',
@@ -313,18 +313,19 @@ else
 
     <title>SASUKE - Instalasi</title>
 
-    <link rel="icon" href="assets/img/logo-default.png">
+    <link rel="icon" href="_/img/logo-default.png">
 
     <!-- Custom fonts for this template-->
-    <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css');?>">
+    <link href="_/vendors/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css');?>">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
-    <link href="assets/css/custom.css" rel="stylesheet">
+    <link href="_/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="_/css/custom.css" rel="stylesheet">
 
+    <link href="https://unpkg.com/sweetalert2@7.24.1/dist/sweetalert2.css" rel="stylesheet">
 </head>
 
 <body class="bg-gradient-primary">
@@ -341,12 +342,12 @@ else
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="p-5">
-                                    <img class="logo-sasuke" src="assets/img/logo-default.png">
+                                    <img class="logo-sasuke" src="_/img/logo-default.png">
                                     <div class="text-center mb-4">
                                         <h1 class="h4 text-gray-900">SASUKE <?= SASUKE_VERSION ?></h1>
                                         <small>Konfigurasi Database</small>
                                     </div>
-                                    <div id="msg_db" class="alert" style="display: none">
+                                    <div id="msg_db" class="alert d-none">
                                         <small class="msg_db">
                                         </small>
                                     </div>
@@ -380,17 +381,19 @@ else
 
     </div>
     <!-- Bootstrap core JavaScript-->
-    <script src="assets/vendor/jquery/jquery.min.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="_/js/jquery/jquery.min.js"></script>
+    <script src="_/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
     
     <!-- Core plugin JavaScript-->
-    <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="_/vendors/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="assets/js/sb-admin-2.min.js"></script>
+    <script src="_/js/sb-admin-2.min.js"></script>
+
+    <script src="https://unpkg.com/sweetalert2@7.24.1/dist/sweetalert2.js"></script>
 
     <script>
-    $("#install").click(function() {
+    $("#db_config").on('submit', function() {
         var formAction = $("#db_config").attr('action');
         var dataDB = {
             db_host: $("#db_host").val(),
@@ -400,25 +403,25 @@ else
             install: $("#install").val(),
         };
 
+        Swal.fire({
+        	title : 'Tunggu...', 
+        	text: 'Sedang Membuat Tabel...', 
+        	type: 'info',
+        	showConfirmButton: false
+        });
+        
         $.ajax({
             type: "POST",
             url: formAction,
             data: dataDB,
             dataType: 'json',
             success: function(data) {
+                
                 if (data.result == 1) {
-                    $("#msg_db").removeAttr('style');
-                    $('#msg_db').attr('class', 'alert alert-success');
-                    $('.msg_db').html(data.msg);
-                    $("#msg_db").slideDown('slow');
-                    $("#msg_db").alert().delay(6000).slideUp('slow');
+                    Swal.fire('Berhasil!', data.msg, 'success');
                     setTimeout(function () { window.location.href = "<?= $location.'/konfigurasi';?>";}, 3000);
                 } else {
-                    $("#msg_db").removeAttr('style');
-                    $('#msg_db').attr('class', 'alert alert-danger');
-                    $('.msg_db').html(data.msg);
-                    $("#msg_db").slideDown('slow');
-                    $("#msg_db").alert().delay(3000).slideUp('slow');
+                    Swal.fire('Gagal!', data.msg, 'error');
                 }
             }
         });
