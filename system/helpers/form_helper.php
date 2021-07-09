@@ -123,14 +123,15 @@ if ( ! function_exists('form_open'))
 				$append  = str_repeat(" ", $noise);
 			}
 
-			$form .= sprintf(
-				'%s<input type="hidden" name="%s" value="%s" />%s%s',
-				$prepend,
-				$CI->security->get_csrf_token_name(),
-				$CI->security->get_csrf_hash(),
-				$append,
-				"\n"
-			);
+			// $form .= sprintf(
+			// 	'%s<input type="hidden" name="%s" value="%s" />%s%s',
+			// 	$prepend,
+			// 	$CI->security->get_csrf_token_name(),
+			// 	$CI->security->get_csrf_hash(),
+			// 	$append,
+			// 	"\n"
+			// );
+			$form .= $prepend.'<input type="hidden" name="'.$CI->security->get_csrf_token_name().'" class="csrf_token" value="'.$CI->security->get_csrf_hash().'" />'.$append."\n";
 		}
 
 		return $form;
