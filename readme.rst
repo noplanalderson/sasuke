@@ -12,7 +12,7 @@ Ini adalah Rilis Ketiga dari SASUKE `Download SASUKE v3.0 di sini
 <https://github.com/noplanalderson/sasuke/archive/v3.0.zip>`_.
 
 **************************
-Perubahan dan Fitur Baru v2.0.2
+Perubahan dan Fitur Baru v3.0
 **************************
 
 -	Security Enhancements
