@@ -1,6 +1,6 @@
 <?php
 define('BASEPATH',TRUE);
-define('SASUKE_VERSION', 'v3.0');
+include dirname(__FILE__).'/app/config/constants.php';
 define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
 ini_set('display_errors', 0);
@@ -33,7 +33,7 @@ $protocol = (isset($_SERVER['HTTPS']) &&
 			isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && 
 			$_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') ? 'https://' : 'http://';
 $location = explode(DIRECTORY_SEPARATOR, dirname(__FILE__));
-$location = $protocol.$_SERVER['HTTP_HOST'].'/'.end($location);
+$location = $protocol.$_SERVER['SERVER_NAME'].'/'.end($location);
 
 function checkDB()
 {
