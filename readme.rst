@@ -25,7 +25,9 @@ Perubahan dan Fitur Baru v3.1.0
 Kebutuhan Server
 *******************
 
-Direkomendasikan untuk memakai PHP versi 7.3 atau terbaru.
+-	Direkomendasikan untuk memakai PHP versi 7.3 atau terbaru.
+-	MySQL atau MariaDB Server
+-	Nginx atau Apache Web Server
 
 ************
 Instalasi
