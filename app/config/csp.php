@@ -38,10 +38,10 @@
  * 		Example : 'nonce-".NONCE."' (Use the NONCE constant to get NONCE VALUE)
  *
  * 
- * @package SIDOTA
+ * @package SASUKE
  * @author Muhammad Ridwan Na'im
- * @version 5.x
- * @since  2018
+ * @version 3.x
+ * @since  2019
  * 
 */
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -184,14 +184,14 @@ $config['default']['default_src'] = array(
 |
 */
 $config['scripting']['script_src'] 	= array(
-	'source'=> ["https://localhost/sasuke-2.0/_/", "https://unpkg.com/sweetalert2@7.24.1/"],
+	'source'=> [BASE_URL."/_/", "https://unpkg.com/sweetalert2@7.24.1/"],
 	'mode' 	=> ["'unsafe-eval'", "'unsafe-inline'", "'report-sample'"],
 	'hash' 	=> [],
 	'nonce' => "'nonce-".NONCE."'"
 );
 
 $config['scripting']['style_src'] 	= array(
-	'source'=> ["https://localhost/sasuke-2.0/_/", "https://fonts.googleapis.com/css", "https://unpkg.com/sweetalert2@7.24.1/"],
+	'source'=> [BASE_URL."/_/", "https://fonts.googleapis.com/css", "https://unpkg.com/sweetalert2@7.24.1/"],
 	'mode' 	=> ["'unsafe-inline'", "'report-sample'"],
 	'hash' 	=> [],
 	'nonce' => "'nonce-".NONCE."'"
@@ -330,14 +330,14 @@ $config['frame']['frame_ancestors'] = array(
 $config['content']['img_src'] 	= array(
 	'source'=> [
 		"data:",
-		"https://localhost/sasuke-2.0/_/",
+		BASE_URL."/_/",
 		"https://www.gstatic.com/images/"
 	],
 );
 
 $config['content']['font_src'] 	= array(
 	'source'=> [
-		"https://localhost/sasuke-2.0/_/vendors/",
+		BASE_URL."/_/vendors/",
 		"https://fonts.gstatic.com/s/nunito/",
 	],
 );
