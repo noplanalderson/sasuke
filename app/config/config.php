@@ -9,8 +9,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Set default cookie configuration to samesite and secure
 |
 */
-ini_set('session.cookie_samesite', 'None');
-ini_set('session.cookie_secure', TRUE);
+// ini_set('session.cookie_samesite', 'None');
+// ini_set('session.cookie_secure', TRUE);
 
 /*
 |--------------------------------------------------------------------------
@@ -34,14 +34,8 @@ ini_set('session.cookie_secure', TRUE);
 | a PHP script and you can easily do that on your own.
 |
 */
-$protocol = (isset($_SERVER['HTTPS']) &&
-            ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
-            isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
-            $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') ? 'https://' : 'http://';
 
-$webdir   = (explode('/', ltrim($_SERVER['REQUEST_URI'], '/'))[0] == 'sasuke-2.0') ? 'sasuke-2.0' : NULL;
-
-$config['base_url'] = $protocol . $_SERVER['HTTP_HOST'] . '/' . $webdir;
+$config['base_url'] = BASE_URL;
 
 /*
 |--------------------------------------------------------------------------
@@ -433,7 +427,7 @@ $config['sess_regenerate_destroy'] = FALSE;
 $config['cookie_prefix']    = '';
 $config['cookie_domain']    = '';
 $config['cookie_path']      = '/';
-$config['cookie_secure']    = TRUE;
+$config['cookie_secure']    = FALSE;
 $config['cookie_httponly']  = TRUE;
 
 /*
@@ -482,7 +476,7 @@ $config['csrf_protection'] = TRUE;
 $config['csrf_token_name'] = 'sasuke_token';
 $config['csrf_cookie_name'] = 'sasuke_cookie';
 $config['csrf_expire'] = 7200;
-$config['csrf_regenerate'] = TRUE;
+$config['csrf_regenerate'] = FALSE;
 $config['csrf_exclude_uris'] = array();
 
 /*
