@@ -7,6 +7,8 @@ class Konfigurasi extends SASUKE_Config {
 
 	protected $instansi = array();
 
+	public $smtp = array();
+
 	public function __construct()
 	{
 		parent::__construct();
@@ -14,6 +16,20 @@ class Konfigurasi extends SASUKE_Config {
 
 		$this->app = $this->app_m->getAppSetting();
 		$this->instansi = $this->app_m->getInstansi();
+
+		if(file_exists(APPPATH . 'config/email.php')) {
+			include APPPATH . 'config/email.php';
+
+			if(is_array($config) && 
+				array_key_exists('protocol', $config) && 
+				array_key_exists('smtp_host', $config) && 
+				array_key_exists('smtp_user', $config) &&
+				array_key_exists('smtp_port', $config) && 
+				array_key_exists('smtp_pass', $config)) 
+			{
+				$this->smtp = $config;
+			}
+		}
 	}
 
 	public function index()
@@ -288,6 +304,7 @@ class Konfigurasi extends SASUKE_Config {
 	public function instansi()
 	{
 		if(empty($this->app)) redirect('konfigurasi');
+		if(!empty($this->instansi)) redirect('konfigurasi/smtp');
 
 		$view = array('config/instansi');
 		SASUKE_Config::view($view);
@@ -503,7 +520,8 @@ class Konfigurasi extends SASUKE_Config {
 	public function smtp()
 	{
 		if(empty($this->instansi)) redirect('konfigurasi/instansi');
-
+		if(!empty($this->smtp)) redirect('masuk');
+		
 		$view = array('config/smtp');
 		SASUKE_Config::view($view);
 	}
@@ -527,6 +545,15 @@ class Konfigurasi extends SASUKE_Config {
 				'errors'=> array(
 					'required' => '{field} harus diisi.',
 					'valid_url'=> '{field} harus merupakan URL yang valid.'
+				)
+			),
+			array(
+				'field' => 'smtp_crypto',
+				'label' => 'Mode Enkripsi',
+				'rules' => 'required|regex_match[/(tls|ssl)$/]',
+				'errors'=> array(
+					'required' => '{field} harus diisi.',
+					'regex_match'=> '{field} hanya mendukung SSL/TLS.'
 				)
 			),
 			array(
@@ -574,6 +601,7 @@ class Konfigurasi extends SASUKE_Config {
 			$port 		= $post['smtp_port'];
 			$user 		= $post['smtp_user'];
 			$password 	= $post['smtp_password'];
+			$encryption = $post['smtp_crypto'];
 
 			$email_cfg = fopen(APPPATH . 'config/email.php', "w");
 
@@ -586,7 +614,7 @@ $config = array(
     \'smtp_port\' => '.$port.',
     \'smtp_user\' => '.'"'.$user.'"'.',
     \'smtp_pass\' => '.'"'.$password.'"'.',
-    \'smtp_crypto\' => \'ssl\',
+    \'smtp_crypto\' => '.'"'.$encryption.'"'.',
     \'mailtype\' => \'text/plan\',
     \'smtp_timeout\' => \'4\',
     \'charset\' => \'utf-8\',
