@@ -30,5 +30,5 @@
     
     <?php $this->_CI->load_css_plugin() ?>
     
-    <link href="https://unpkg.com/sweetalert2@7.24.1/dist/sweetalert2.css" rel="stylesheet">
+    <?= plugin('sweetalert2/dist/sweetalert2.min'); ?>
 </head>

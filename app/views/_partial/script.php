@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 
 		<?php $this->_CI->load_js_plugin() ?>
 		
-		<script src="https://unpkg.com/sweetalert2@7.24.1/dist/sweetalert2.js"></script>
+		<?= plugin('sweetalert2/dist/sweetalert2.min', 'js'); ?>
 		
 		<?= js('sb-admin-2.min') ?>
 		

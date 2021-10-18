@@ -25,7 +25,7 @@
     <link href="<?= site_url('_/css/sb-admin-2.min.css');?>" rel="stylesheet">
     <link href="<?= site_url('_/css/custom.css');?>" rel="stylesheet">
 
-    <link href="https://unpkg.com/sweetalert2@7.24.1/dist/sweetalert2.css" rel="stylesheet">
+    <link href="<?= site_url('_/vendors/sweetalert2/dist/sweetalert2.min.css');?>" rel="stylesheet">
 </head>
 
 <body class="bg-gradient-primary">
@@ -151,7 +151,7 @@
     <!-- Custom scripts for all pages-->
     <script src="<?= site_url('_/js/sb-admin-2.min.js');?>"></script>
 
-    <script src="https://unpkg.com/sweetalert2@7.24.1/dist/sweetalert2.js"></script>
+    <script src="<?= site_url('_/vendors/sweetalert2/dist/sweetalert2.js'); ?>"></script>
 
     <script src="<?= site_url('_/js/app.config.js'); ?>"></script>
 </body>
