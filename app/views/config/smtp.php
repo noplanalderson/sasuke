@@ -25,7 +25,7 @@
     <link href="<?= site_url('_/css/sb-admin-2.min.css');?>" rel="stylesheet">
     <link href="<?= site_url('_/css/custom.css');?>" rel="stylesheet">
 
-    <link href="https://unpkg.com/sweetalert2@7.24.1/dist/sweetalert2.css" rel="stylesheet">
+    <link href="<?= site_url('_/vendors/sweetalert2/dist/sweetalert2.min.css');?>" rel="stylesheet">
 </head>
 
 <body class="bg-gradient-primary">
@@ -60,7 +60,16 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-md-8">
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label>Enkripsi *</label>
+                                                    <select name="smtp_crypto" id="smtp_crypto" class="form-control" required="required">
+                                                        <option value="ssl">SSL</option>
+                                                        <option value="tls">TLS</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>SMTP Host *</label>
                                                     <input type="text" id="smtp_host" name="smtp_host" placeholder="smtp.domain.com" class="form-control" required="required" />
@@ -111,7 +120,7 @@
     <!-- Custom scripts for all pages-->
     <script src="<?= site_url('_/js/sb-admin-2.min.js');?>"></script>
 
-    <script src="https://unpkg.com/sweetalert2@7.24.1/dist/sweetalert2.js"></script>
+    <script src="<?= site_url('_/vendors/sweetalert2/dist/sweetalert2.js'); ?>"></script>
 
     <script src="<?= site_url('_/js/smtp.config.js');?>"></script>
 </body>
