@@ -21,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                                         <small>Atur Password Anda</small>
                                     </div>
                                     <?= form_open('submit-password', 'method="post" id="formPassword" class="user" data-parsley-validate accept-charset="utf-8"');?>
-                                        <input type="hidden" name="kode" value="<?= $token ?>">
+                                        <input type="hidden" name="kode" id="kode" value="<?= $token ?>">
                                         <label for="user_password">Password</label>
                                         <div class="wrapper">
                                             <input id="user_password" 
