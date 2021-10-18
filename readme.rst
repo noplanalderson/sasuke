@@ -44,5 +44,5 @@ Instalasi
 Acknowledgement
 ***************
 
-Kirimkan saran dan laporkan isu keamanan atau bug melalui `Email Saya <mailto:mrnaeem@tutanota.com>`_
-Aplikasi ini dikembangkan oleh : Muhammad Ridwan Na'im
+-	Kirimkan saran dan laporkan isu keamanan atau bug melalui `Email Saya <mailto:mrnaeem@tutanota.com>`_
+-	Aplikasi ini dikembangkan oleh : Muhammad Ridwan Na'im
