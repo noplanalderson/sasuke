@@ -227,6 +227,18 @@ switch (ENVIRONMENT)
  *  Now that we know the path, set the main path constants
  * -------------------------------------------------------------------
  */
+	$protocol = (isset($_SERVER['HTTPS']) &&
+	            ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+	            isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+	            $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') ? 'https://' : 'http://';
+
+	// Konfigurasi web direktori
+	// Jika anda menggunakan xampp, sesuaikan isi variabel webdir dengan nama direktori aplikasi sasuke anda
+	// Jika anda mengarahkan webroot ke aplikasi ini, maka kosongkan variabel ini.
+	$webdir   = 'sasuke';
+
+	define('BASE_URL', $protocol . $_SERVER['SERVER_NAME'] . '/' . $webdir);
+
 	// The name of THIS file
 	define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
 
