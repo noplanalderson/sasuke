@@ -8,18 +8,18 @@ SASUKE (Sistem Aplikasi Surat Kematian) adalah sebuah aplikasi yang memudahkan p
 Informasi Rilis
 *******************
 
-Ini adalah Rilis Ketiga dari SASUKE `Download SASUKE v3.0 di sini
-<https://github.com/noplanalderson/sasuke/archive/v3.0.zip>`_.
+Ini adalah Rilis Ketiga dari SASUKE `Download SASUKE v3.1.0 di sini
+<https://github.com/noplanalderson/sasuke/archive/v3.1.0.zip>`_.
 
 **************************
-Perubahan dan Fitur Baru v3.0
+Perubahan dan Fitur Baru v3.1.0
 **************************
 
--	Security Enhancements
--	Perubahan Struktur Direktori Framework
-- 	Penambahan Library Sweetalert
--	Penambahan Konfigurasi SMTP Saat Instalasi
--	Perbaikan Bug
+-	Perbaikan Bug pada Aktivasi Akun
+-	Perbaikan Bug pada Proses Instalasi
+-	Perbaikan Konfigurasi CSP
+-	Penambahan mode enkripsi SSL dan TLS pada Konfigurasi SMTP
+-	Pemindahan plugin sweetalert ke penyimpanan lokal
 
 *******************
 Kebutuhan Server
@@ -43,7 +43,7 @@ Resources
 *********
 
 
-Laporkan isu keamanan melalui `Email Saya <mailto:project21_itsolution@protonmail.com>`_
+Laporkan isu keamanan melalui `Email Saya <mailto:mrnaeem@tutanota.com>`_
 
 ***************
 Acknowledgement
