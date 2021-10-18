@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                                     <img class="logo-sasuke" src="<?= site_url('_/uploads/sites/'.$this->app->logo_app);?>">
                                     <div class="text-center mb-4">
                                         <h1 class="h4 text-gray-900"><?= $this->app->judul_app_alt;?></h1>
-                                        <small><?= $this->app->judul_app;?> <?= SASUKE_VERSION ?></small>
+                                        <small>Sistem Aplikasi Surat Kematian <?= SASUKE_VERSION ?></small>
                                     </div>
                                     <div id="msg_login" class="alert d-none">
                                         <small class="msg_login"></small>
