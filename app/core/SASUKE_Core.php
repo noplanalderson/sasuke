@@ -163,12 +163,23 @@ class SASUKE_Core extends CI_Controller
 		// Load memcached driver
 		$this->_CI->load->driver('cache', array('adapter' => 'file'));
 
+		if(!file_exists(APPPATH . 'config/email.php')) 
+		{
+			redirect('konfigurasi/smtp');
+		}
+		else
+		{
+			$this->config->item('email');
+		}
+
 		// Load App Model
 		$this->load->model('app_m');
 
 		// Save Loaded App Configuration to cache
 		$this->app 		= load_cache('sasuke_setting', 'app_m', 'getAppSetting', NULL, 300);
 
+		if(empty($this->app)) redirect('konfigurasi');
+		
 		// Save Loaded Instansi Configuration to cache
 		$this->instansi = load_cache('sasuke_instansi', 'app_m', 'getInstansi', NULL, 300);
 
