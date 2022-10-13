@@ -83,7 +83,7 @@ class Skmk extends SASUKE_Core {
 
 	function kode_surat($str)
 	{
-		if(!preg_match("/(SKMK-)([A-Z\/]{1,4})(IX|IV|V?I{1,3})([\/]{1}+[0-9]{4})$/", $str))
+		if(!preg_match("/(SKMK-)([A-Z\/]{1,4})([\/]{1})(X|X?I{1,2}|IX|IV|V|V?I{1,3})([\/]{1}[0-9]{4})$/", $str))
 		{
 			$this->form_validation->set_message('kode_surat', 'Kode Surat tidak Valid');
 			return false;
