@@ -11,6 +11,7 @@ class Skmk_m extends CI_Model {
 	public function getNomor()
 	{
 		$this->db->select('MAX(id_pelapor) AS nomor');
+		$this->db->where('YEAR(tgl_dibuat)', date('Y'));
 		$id = $this->db->get('tb_pelapor')->row();
 		return $id->nomor + 1;
 	}
