@@ -184,7 +184,7 @@ $config['default']['default_src'] = array(
 |
 */
 $config['scripting']['script_src'] 	= array(
-	'source'=> [BASE_URL."/_/", "https://unpkg.com/sweetalert2@7.24.1/"],
+	'source'=> [BASE_URL."/_/", "https://unpkg.com/sweetalert2@7.24.1/", "https://cdnjs.cloudflare.com", "https://html2canvas.hertzen.com/"],
 	'mode' 	=> ["'unsafe-eval'", "'unsafe-inline'", "'report-sample'"],
 	'hash' 	=> [],
 	'nonce' => "'nonce-".NONCE."'"
