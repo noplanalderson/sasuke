@@ -82,11 +82,13 @@ class Manajemen_user extends SASUKE_Core {
 					'user_name' => $post['user_name'],
 					'user_password' => '',
 					'nama_pegawai' => ucwords($post['nama_pegawai']),
+					'user_password' => password_hash($post['user_password'], PASSWORD_ARGON2ID),
 					'nip' => empty($post['nip']) ? NULL : $post['nip'],
 					'user_email' => strtolower($post['user_email']),
 					'id_type' => $post['id_type'],
 					'user_token' => base64url_encode(openssl_random_pseudo_bytes(64)),
-					'user_picture' => 'user.png'
+					'user_picture' => 'user.png',
+					'is_active' => $post['is_active']
 				);
 
 				$user = $this->user_m->tambahUser($userSetting);
@@ -101,17 +103,6 @@ class Manajemen_user extends SASUKE_Core {
 					if (!is_dir($userDir)) mkdir($userDir, 0755, true);
 
 					copy($assetDir . 'user.png', $userDir . 'user.png');
-
-					$from = $this->config->item('smtp_user');
-					$this->load->library('email');
-					
-					$this->email->from($from, 'Sistem Aplikasi Surat Kematian [SASUKE]');
-					$this->email->to($userSetting['user_email']);
-					
-					$this->email->subject('SASUKE - Aktivasi Akun');
-					$this->email->message("Email anda telah terdaftar pada Aplikasi SASUKE. Silakan aktivasi akun anda dengan mengunjungi tautan berikut.\n\n" . base_url('aktivasi/'.$userSetting['user_token']));
-					
-					$this->email->send();
 				}
 
 				$msg = ($status === 1) ? 'User berhasil ditambahkan.' : 'User gagal ditambahkan.';
@@ -192,6 +183,23 @@ class Manajemen_user extends SASUKE_Core {
 				'errors'=> [
 					'regex_match' => '{field} harus bernilai TRUE atau FALSE.'
 				]
+			),
+			array(
+				'field' => 'user_password',
+		        'label' => 'Password',
+		        'rules' => 'regex_match[/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.* )(?=.*[^a-zA-Z0-9]).{8,16}$/]|required',
+		        'errors'=> array('required' => '{field} required',
+                    'regex_match' => '{field} harus terdiri dari Uppercase, Lowercase, Numerik, dan Simbol 8-16 karakter.'
+                )
+			),
+			array(
+				'field' => 'repeat_password',
+		        'label' => 'Repeat Password',
+		        'rules' => 'required|matches[user_password]',
+		        'errors'=> array(
+		        	'required' => '{field} required',
+                    'equal_to' => '{field} tidak cocok.'
+                )
 			)
 		);
 

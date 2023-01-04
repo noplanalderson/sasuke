@@ -83,13 +83,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                                         <input type="hidden" name="id_user" id="id_user" value="">
                                         <div class="form-group">
                                             <label for="user_name">Username *</label>
-                                            <input type="text" id="user_name" name="user_name" class="form-control" placeholder="Username" data-parsley-pattern="^[A-Za-z0-9_]{1,15}$" required="required">
+                                            <input type="text" id="mgmt_user_name" name="user_name" class="form-control" placeholder="Username" data-parsley-pattern="^[A-Za-z0-9_]{1,15}$" required="required">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="user_email">Email *</label>
-                                            <input type="email" id="user_email" name="user_email" class="form-control" placeholder="Email User" required="required">
+                                            <input type="email" id="mgmt_user_email" name="user_email" class="form-control" placeholder="Email User" required="required">
                                         </div>
                                     </div>
                                 </div>
@@ -102,6 +102,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                                     <div class="col-md-6">
                                         <label>NIP</label>
                                         <input type="text" id="nip" name="nip" placeholder="NIP" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Password *</label>
+                                            <input type="password" id="mgmt_user_password" name="user_password" placeholder="********" class="form-control" required="required"/>
+                                            <small class="text-danger">Password harus terdiri dari Uppercase, Lowercase, Numerik, dan Simbol min. 8 karakter</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Repeat Password *</label>
+                                            <input type="password" id="mgmt_repeat_password" name="repeat_password" placeholder="********" class="form-control" required="required"/>
+                                            <small class="text-danger">Password harus cocok.</small>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row mt-1">

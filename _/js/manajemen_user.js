@@ -26,12 +26,13 @@
         	$('.modal-title').html('Tambah User');
             $('.modal-footer button[type=submit]').html('Tambah');
             $('.modal-body form').attr('action', baseURI + '/tambah-user');
-            $('#is_active_box').attr('class', 'col-md-6 d-none');
             
             $('#id_user').val('');
-            $('#user_name').val('');
-            $('#user_email').val('');
+            $('#mgmt_user_name').val('');
+            $('#mgmt_user_email').val('');
             $('#nama_pegawai').val('');
+            $('#mgmt_user_password').val('');
+            $('#mgmt_repeat_password').val('');
             $('#nip').val('');
             $('#id_type').val('');
         });
@@ -39,7 +40,6 @@
             $('.modal-title').html('Edit User');
             $('.modal-footer button[type=submit]').html('Edit User');
             $('.modal-body form').attr('action', baseURI + '/edit-user');
-            $('#is_active_box').attr('class', 'col-md-6');
 
             const id_user = $(this).data('id');
             $.ajax({
@@ -55,8 +55,10 @@
                     $('meta[name="X-CSRF-TOKEN"]').attr('content', data.token);
                     $('#id_user').val(id_user)
                     $('#user_name').val(data.user_name);
-                    $('#user_email').val(data.user_email);
+                    $('#mgmt_user_email').val(data.user_email);
                     $('#nama_pegawai').val(data.nama_pegawai);
+                    $('#mgmt_user_password').val('');
+                    $('#mgmt_repeat_password').val('');
                     $('#nip').val(data.nip);
                     $('#id_type').val(data.id_type);
                     if(data.is_active == 'TRUE') {
@@ -116,9 +118,11 @@
         var formAction = $("#userForm").attr('action');
         var dataUser = {
             id_user : $('#id_user').val(),
-            user_name : $('#user_name').val(),
-            user_email : $('#user_email').val(),
+            user_name : $('#mgmt_user_name').val(),
+            user_email : $('#mgmt_user_email').val(),
             nama_pegawai : $('#nama_pegawai').val(),
+            user_password: $('#mgmt_user_password').val(),
+            repeat_password: $('#mgmt_repeat_password').val(),
             nip : $('#nip').val(),
             id_type : $('#id_type').val(),
             is_active : ($('#is_active').is(":checked")) ? true : false,
@@ -135,7 +139,7 @@
                 $('.csrf_token').val(data.token);
                 $('meta[name="X-CSRF-TOKEN"]').attr('content', data.token);
 
-                if (data.result == 1) {
+                if (data.result !== 0) {
                     Swal.fire('Success!', data.msg, 'success');
                     setTimeout(location.reload.bind(location), 1000);
                 } else {
