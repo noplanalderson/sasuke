@@ -82,7 +82,11 @@ class Manajemen_user extends SASUKE_Core {
 					'user_name' => $post['user_name'],
 					'user_password' => '',
 					'nama_pegawai' => ucwords($post['nama_pegawai']),
-					'user_password' => password_hash($post['user_password'], PASSWORD_ARGON2ID),
+					'user_password' => passwordHash($post['user_password'],[
+							'memory_cost' => 2048, 
+							'time_cost' => 4, 
+							'threads' => 1
+						]),
 					'nip' => empty($post['nip']) ? NULL : $post['nip'],
 					'user_email' => strtolower($post['user_email']),
 					'id_type' => $post['id_type'],
@@ -233,6 +237,11 @@ class Manajemen_user extends SASUKE_Core {
 							'user_name' => $post['user_name'],
 							'nama_pegawai' => ucwords($post['nama_pegawai']),
 							'nip' => empty($post['nip']) ? NULL : $post['nip'],
+							'user_password' => passwordHash($pwd,[
+								'memory_cost' => 2048, 
+								'time_cost' => 4, 
+								'threads' => 1
+							]),
 							'user_email' => strtolower($post['user_email']),
 							'id_type' => $post['id_type'],
 							'is_active' => $post['is_active']
