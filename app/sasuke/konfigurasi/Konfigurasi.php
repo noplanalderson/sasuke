@@ -520,7 +520,7 @@ class Konfigurasi extends SASUKE_Config {
 	public function smtp()
 	{
 		if(empty($this->instansi)) redirect('konfigurasi/instansi');
-		if(!empty($this->smtp)) redirect('masuk');
+		if(!empty($this->smtp)) redirect('login');
 		
 		$view = array('config/smtp');
 		SASUKE_Config::view($view);
