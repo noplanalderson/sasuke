@@ -54,7 +54,7 @@
                     $('.csrf_token').val(data.token);
                     $('meta[name="X-CSRF-TOKEN"]').attr('content', data.token);
                     $('#id_user').val(id_user)
-                    $('#user_name').val(data.user_name);
+                    $('#mgmt_user_name').val(data.user_name);
                     $('#mgmt_user_email').val(data.user_email);
                     $('#nama_pegawai').val(data.nama_pegawai);
                     $('#mgmt_user_password').val('');
