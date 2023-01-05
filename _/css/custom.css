@@ -162,9 +162,13 @@ hr.batas-kop {
 }
 
 .tanda-tangan {
-    text-indent: 34em;
+    text-indent: 32em;
 }
 
 .mt-min-1 {
     margin-top: -1rem;
+}
+
+.font-black{
+    color:#000;
 }
