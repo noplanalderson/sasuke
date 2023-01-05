@@ -132,8 +132,8 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>Logo Kop Instansi *</label>
-                                                    <input type="file" class="form-control" name="logo_kop_instansi" id=logo_kop_instansi accept="image/*" required="required">
+                                                    <label>Kop Instansi *</label>
+                                                    <input type="file" class="form-control" name="kop_instansi" id="kop_instansi" accept="image/*" required="required">
                                                     <small class="text-danger">Ekstensi gambar harus JPG, JPEG, PNG maks. 5MB.</small>
                                                 </div>
                                             </div>
