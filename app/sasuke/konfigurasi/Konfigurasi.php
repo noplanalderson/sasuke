@@ -304,7 +304,7 @@ class Konfigurasi extends SASUKE_Config {
 	public function instansi()
 	{
 		if(empty($this->app)) redirect('konfigurasi');
-		if(!empty($this->instansi)) redirect('konfigurasi/smtp');
+		if(!empty($this->instansi)) redirect('login');
 
 		$view = array('config/instansi');
 		SASUKE_Config::view($view);
@@ -444,7 +444,7 @@ class Konfigurasi extends SASUKE_Config {
 
 		if ($this->form_validation->run() == TRUE) 
 		{
-			if(!empty($_FILES['logo_kop_instansi']['name']))
+			if(!empty($_FILES['kop_instansi']['name']))
 			{
 				// Get Image's filename without extension
 				$filename = pathinfo($_FILES['logo_kop_instansi']['name'], PATHINFO_FILENAME);
@@ -456,7 +456,7 @@ class Konfigurasi extends SASUKE_Config {
 				$filename = str_replace(' ', '-', $filename);
 
 				$config = array(
-					'form_name' => 'logo_kop_instansi', // Form upload's name
+					'form_name' => 'kop_instansi', // Form upload's name
 					'upload_path' => FCPATH . '_/uploads', // Upload Directory. Default : ./uploads
 					'allowed_types' => 'png|jpg|jpeg|webp', // Allowed Extension
 					'max_size' => '5128', // Maximun image size. Default : 5120
@@ -467,9 +467,6 @@ class Konfigurasi extends SASUKE_Config {
 					'file_name' => $filename, // New Image's Filename
 					'extension' => 'webp', // New Imaage's Extension. Default : webp
 					'quality' => '100%', // New Image's Quality. Default : 95%
-					'maintain_ratio' => TRUE, // Maintain image's dimension ratio. TRUE|FALSE
-					'width' => 600, // New Image's width. Default : 800px
-					'height' => 600, // New Image's Height. Default : 600px
 					'cleared_path' => FCPATH . '_/uploads/sites'
 				);
 
@@ -517,126 +514,126 @@ class Konfigurasi extends SASUKE_Config {
 		$this->output->set_content_type('application/json')->set_output(json_encode($result));
 	}
 
-	public function smtp()
-	{
-		if(empty($this->instansi)) redirect('konfigurasi/instansi');
-		if(!empty($this->smtp)) redirect('login');
+// 	public function smtp()
+// 	{
+// 		if(empty($this->instansi)) redirect('konfigurasi/instansi');
+// 		if(!empty($this->smtp)) redirect('login');
 		
-		$view = array('config/smtp');
-		SASUKE_Config::view($view);
-	}
+// 		$view = array('config/smtp');
+// 		SASUKE_Config::view($view);
+// 	}
 
-	private function _rulesSMTP()
-	{
-		$rules = array(
-			array(
-				'field' => 'protokol',
-				'label' => 'Protokol',
-				'rules' => 'required|regex_match[/(smtp|sendmail|mail)$/]',
-				'errors'=> array(
-					'required' => '{field} harus diisi.',
-					'regex_match'=> '{field} harus merupakan smtp/sendmail/mail.'
-				)
-			),
-			array(
-				'field' => 'smtp_host',
-				'label' => 'SMTP Host',
-				'rules' => 'required|valid_url',
-				'errors'=> array(
-					'required' => '{field} harus diisi.',
-					'valid_url'=> '{field} harus merupakan URL yang valid.'
-				)
-			),
-			array(
-				'field' => 'smtp_crypto',
-				'label' => 'Mode Enkripsi',
-				'rules' => 'required|regex_match[/(tls|ssl)$/]',
-				'errors'=> array(
-					'required' => '{field} harus diisi.',
-					'regex_match'=> '{field} hanya mendukung SSL/TLS.'
-				)
-			),
-			array(
-				'field' => 'smtp_port',
-				'label' => 'SMTP Port',
-				'rules' => 'required|integer',
-				'errors'=> array(
-					'required' => '{field} harus diisi.',
-					'integer'=> '{field} harus merupakan angka.'
-				)
-			),
-			array(
-				'field' => 'smtp_user',
-				'label' => 'SMTP User',
-				'rules' => 'trim|required|valid_email',
-				'errors'=> array(
-					'required' => '{field} harus diisi.',
-					'valid_email'=> '{field} harus merupakan email yang valid.'
-				)
-			),
-			array(
-				'field' => 'smtp_password',
-				'label' => 'SMTP Password',
-				'rules' => 'trim|required',
-				'errors'=> array(
-					'required' => '{field} harus diisi.',
-				)
-			),
-		);
+// 	private function _rulesSMTP()
+// 	{
+// 		$rules = array(
+// 			array(
+// 				'field' => 'protokol',
+// 				'label' => 'Protokol',
+// 				'rules' => 'required|regex_match[/(smtp|sendmail|mail)$/]',
+// 				'errors'=> array(
+// 					'required' => '{field} harus diisi.',
+// 					'regex_match'=> '{field} harus merupakan smtp/sendmail/mail.'
+// 				)
+// 			),
+// 			array(
+// 				'field' => 'smtp_host',
+// 				'label' => 'SMTP Host',
+// 				'rules' => 'required|valid_url',
+// 				'errors'=> array(
+// 					'required' => '{field} harus diisi.',
+// 					'valid_url'=> '{field} harus merupakan URL yang valid.'
+// 				)
+// 			),
+// 			array(
+// 				'field' => 'smtp_crypto',
+// 				'label' => 'Mode Enkripsi',
+// 				'rules' => 'required|regex_match[/(tls|ssl)$/]',
+// 				'errors'=> array(
+// 					'required' => '{field} harus diisi.',
+// 					'regex_match'=> '{field} hanya mendukung SSL/TLS.'
+// 				)
+// 			),
+// 			array(
+// 				'field' => 'smtp_port',
+// 				'label' => 'SMTP Port',
+// 				'rules' => 'required|integer',
+// 				'errors'=> array(
+// 					'required' => '{field} harus diisi.',
+// 					'integer'=> '{field} harus merupakan angka.'
+// 				)
+// 			),
+// 			array(
+// 				'field' => 'smtp_user',
+// 				'label' => 'SMTP User',
+// 				'rules' => 'trim|required|valid_email',
+// 				'errors'=> array(
+// 					'required' => '{field} harus diisi.',
+// 					'valid_email'=> '{field} harus merupakan email yang valid.'
+// 				)
+// 			),
+// 			array(
+// 				'field' => 'smtp_password',
+// 				'label' => 'SMTP Password',
+// 				'rules' => 'trim|required',
+// 				'errors'=> array(
+// 					'required' => '{field} harus diisi.',
+// 				)
+// 			),
+// 		);
 
-		return $rules;
-	}
+// 		return $rules;
+// 	}
 
-	public function submit_smtp()
-	{
-		$status = 0;
-		$post 	= $this->input->post(null, TRUE);
+// 	public function submit_smtp()
+// 	{
+// 		$status = 0;
+// 		$post 	= $this->input->post(null, TRUE);
 
-		$this->form_validation->set_rules($this->_rulesSMTP());
+// 		$this->form_validation->set_rules($this->_rulesSMTP());
 
-		if ($this->form_validation->run() == TRUE) 
-		{
-			$protocol 	= $post['protokol'];
-			$host 	 	= $post['smtp_host'];
-			$port 		= $post['smtp_port'];
-			$user 		= $post['smtp_user'];
-			$password 	= $post['smtp_password'];
-			$encryption = $post['smtp_crypto'];
+// 		if ($this->form_validation->run() == TRUE) 
+// 		{
+// 			$protocol 	= $post['protokol'];
+// 			$host 	 	= $post['smtp_host'];
+// 			$port 		= $post['smtp_port'];
+// 			$user 		= $post['smtp_user'];
+// 			$password 	= $post['smtp_password'];
+// 			$encryption = $post['smtp_crypto'];
 
-			$email_cfg = fopen(APPPATH . 'config/email.php', "w");
+// 			$email_cfg = fopen(APPPATH . 'config/email.php', "w");
 
-$config = '<?php
-defined(\'BASEPATH\') OR exit(\'No direct script access allowed\');
+// $config = '<?php
+// defined(\'BASEPATH\') OR exit(\'No direct script access allowed\');
 
-$config = array(
-	\'protocol\' => '.'"'.$protocol.'"'.',
-    \'smtp_host\' => '.'"'.$host.'"'.', 
-    \'smtp_port\' => '.$port.',
-    \'smtp_user\' => '.'"'.$user.'"'.',
-    \'smtp_pass\' => '.'"'.$password.'"'.',
-    \'smtp_crypto\' => '.'"'.$encryption.'"'.',
-    \'mailtype\' => \'text/plan\',
-    \'smtp_timeout\' => \'4\',
-    \'charset\' => \'utf-8\',
-    \'wordwrap\' => TRUE,
-    \'crlf\'    => "\r\n",
-    \'newline\' => "\r\n"
-);';
+// $config = array(
+// 	\'protocol\' => '.'"'.$protocol.'"'.',
+//     \'smtp_host\' => '.'"'.$host.'"'.', 
+//     \'smtp_port\' => '.$port.',
+//     \'smtp_user\' => '.'"'.$user.'"'.',
+//     \'smtp_pass\' => '.'"'.$password.'"'.',
+//     \'smtp_crypto\' => '.'"'.$encryption.'"'.',
+//     \'mailtype\' => \'text/plan\',
+//     \'smtp_timeout\' => \'4\',
+//     \'charset\' => \'utf-8\',
+//     \'wordwrap\' => TRUE,
+//     \'crlf\'    => "\r\n",
+//     \'newline\' => "\r\n"
+// );';
 
-			$status = (fwrite($email_cfg, $config) !== false) ? 1 : 0;
-			$msg = ($status === 1) ? 'Pengaturan SMTP Berhasil. Mengalihkan ke Halaman Login...' : 'Pengaturan SMTP Gagal.';
+// 			$status = (fwrite($email_cfg, $config) !== false) ? 1 : 0;
+// 			$msg = ($status === 1) ? 'Pengaturan SMTP Berhasil. Mengalihkan ke Halaman Login...' : 'Pengaturan SMTP Gagal.';
 
-			fclose($email_cfg);
+// 			fclose($email_cfg);
 
-		} 
-		else 
-		{
-			$msg = validation_errors();
-		}
+// 		} 
+// 		else 
+// 		{
+// 			$msg = validation_errors();
+// 		}
 		
-		$token = $this->security->get_csrf_hash();
-		$result = array('result' => $status, 'msg' => $msg, 'token' => $token);
+// 		$token = $this->security->get_csrf_hash();
+// 		$result = array('result' => $status, 'msg' => $msg, 'token' => $token);
 
-		$this->output->set_content_type('application/json')->set_output(json_encode($result));
-	}
+// 		$this->output->set_content_type('application/json')->set_output(json_encode($result));
+// 	}
 }
