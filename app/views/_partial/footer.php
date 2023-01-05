@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span><?= $this->app->text_footer_app ?></span> &copy; <?= date('Y');?>
+                        <span>SASUKE v<?= SASUKE_VERSION ?> by Mr. Naeem</span> &copy; <?= date('Y');?>
                     </div>
                 </div>
             </footer>
