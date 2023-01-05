@@ -75,6 +75,9 @@ class Manajemen_akses extends SASUKE_Core {
 		{		
 			$status = ($this->akses_m->tambahAkses($post) === TRUE) ? 1 : 0;
 			$msg 	= ($status === 1) ? 'Tipe user berhasil ditambahkan.' : 'Gagal menambahkan tipe user.';
+
+			$this->cache->delete('sasuke_menu_'.$this->user_hash);
+			$this->cache->delete('sasuke_role_'.$this->user_hash);
 		}
 		else
 		{
@@ -99,6 +102,9 @@ class Manajemen_akses extends SASUKE_Core {
 		{		
 			$status = ($this->akses_m->editAkses($post) === TRUE) ? 1 : 0;
 			$msg 	= ($status === 1) ? 'Tipe user berhasil diubah.' : 'Gagal mengubah tipe user.';
+
+			$this->cache->delete('sasuke_menu_'.$this->user_hash);
+			$this->cache->delete('sasuke_role_'.$this->user_hash);
 		}
 		else
 		{
