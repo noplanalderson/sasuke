@@ -164,8 +164,8 @@ class Pengaturan_instansi extends SASUKE_Core {
 				]
 			),
 			array(
-				'field' => 'logo_kop_instansi',
-				'label' => 'Logo Kop Instansi (old)',
+				'field' => 'kop_instansi',
+				'label' => 'Kop Instansi (old)',
 				'rules' => 'trim|regex_match[/[a-zA-Z0-9\/\-_.]+$/]|max_length[255]',
 				'errors'=> [
 					'regex_match' => '{field} hanya boleh mengandung karakter [a-zA-Z0-9\/\-_.].',
@@ -186,7 +186,7 @@ class Pengaturan_instansi extends SASUKE_Core {
 
 		if ($this->form_validation->run() == TRUE) 
 		{
-			if(!empty($_FILES['logo_kop_instansi']['name']))
+			if(!empty($_FILES['kop_instansi']['name']))
 			{
 				// Get Image's filename without extension
 				$filename = pathinfo($_FILES['logo_kop_instansi']['name'], PATHINFO_FILENAME);
@@ -198,7 +198,7 @@ class Pengaturan_instansi extends SASUKE_Core {
 				$filename = str_replace(' ', '-', $filename);
 
 				$config = array(
-					'form_name' => 'logo_kop_instansi', // Form upload's name
+					'form_name' => 'kop_instansi', // Form upload's name
 					'upload_path' => FCPATH . '_/uploads', // Upload Directory. Default : ./uploads
 					'allowed_types' => 'png|jpg|jpeg|webp', // Allowed Extension
 					'max_size' => '5128', // Maximun image size. Default : 5120
@@ -231,7 +231,7 @@ class Pengaturan_instansi extends SASUKE_Core {
 			}
 			else
 			{
-				$kop_app = $post['logo_kop_instansi'];	
+				$kop_app = $post['kop_instansi'];	
 			}
 
 			$instansi = array(
@@ -250,7 +250,15 @@ class Pengaturan_instansi extends SASUKE_Core {
 			);
 			
 			$status = ($this->app_m->updateInstansi($instansi) == true) ? 1 : 0;
-			$msg 	= ($status === 1) ? 'Pengaturan Instansi Berhasil.' : 'Pengaturan Instansi Gagal.';
+			if($status === 1) {
+
+				$msg = 'Pengaturan Instansi Berhasil.'; 
+				$this->cache->delete('sasuke_instansi');
+			} 
+			else
+			{
+				$msg = 'Pengaturan Instansi Gagal.';
+			}
 		} 
 		else 
 		{

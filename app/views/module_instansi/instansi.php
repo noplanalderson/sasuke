@@ -104,9 +104,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Logo Kop Instansi</label>
-                                            <input type="hidden" name="logo_kop_instansi" value="<?= $this->instansi->logo_kop_instansi;?>">
-                                            <input type="file" class="form-control" name="logo_kop_instansi" id=logo_kop_instansi accept="image/*">
+                                            <label>Kop Instansi</label>
+                                            <input type="hidden" name="kop_instansi" value="<?= $this->instansi->logo_kop_instansi;?>">
+                                            <input type="file" class="form-control" name="kop_instansi" id=kop_instansi accept="image/*">
                                             <small class="text-danger">Ekstensi gambar harus JPG, JPEG, PNG maks. 5MB.</small>
                                         </div>
                                     </div>
