@@ -14,31 +14,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                                     <small id="no-surat"><?= str_replace('/', '-', $skmk->no_skmk) ?></small>
                                 </div>
                                 <div class="col-md-4">
-                                    <button title="Print" class="btn btn-success export-pdf export-btn"><i class="fa fa-download"></i> Ekspor ke PDF</button>
+                                    <button title="Print" class="btn btn-danger export-pdf export-btn"><i class="fa fa-file-pdf"></i> Unduh PDF</button>
                                     <button title="Print" class="btn btn-info cetak-surat export-btn"><i class="fa fa-print"></i> Cetak Surat</button>
                                 </div>
                             </div>
                         </div>
                         <div id="cetak" class="card-body text-dark">
                             <div class="mx-5">
-                                  <table class="table-skmk" width="100%" align="center">
-                                  <!--FORM HEADER-->
-                                      <tr class="text-center">
-                                          <td class="align-middle"><img src="<?= encodeImage('./_/uploads/sites/'.$this->instansi->logo_kop_instansi);?>" class="w-100"></td>
-                                          <!-- <td colspan="18" class="align-middle;">
-                                            <h5><?= strtoupper($this->instansi->induk_instansi) ?></h5>
-                                            <h4><?= strtoupper($this->instansi->nama_instansi) ?></h4>
-                                            <p><?= $this->instansi->alamat_instansi.', Kode Pos : '.$this->instansi->kode_pos_instansi ?><br/>
-                                            Telp : <?= $this->instansi->telp_instansi ?>, Email : <?= $this->instansi->email_instansi ?></p>
-                                            <h5><?= strtoupper($this->instansi->kota_instansi) ?></h5>
-                                          </td> -->
-                                      </tr>
-                                      <!-- <tr height="10px">
-                                          <td colspan="15"><hr class="batas-kop"></td>
-                                      </tr> -->
-                                  </table>
+                              <table class="table-skmk" width="100%" align="center">
+                              <!--FORM HEADER-->
+                                  <tr class="text-center">
+                                      <td class="align-middle"><img src="<?= encodeImage('./_/uploads/sites/'.$this->instansi->logo_kop_instansi);?>" class="w-100"></td>
+                                  </tr>
+                              </table>
                             </div>
-                            <div class="rem-5 font-black">
+                            <div class="px-5 mx-3 py-5 font-black">
                                   <h5 class="text-center text-decoration"><strong><u>KETERANGAN MELAPOR KEMATIAN (SKMK)</u></strong></h5>
                                   <p class="text-center">Nomor : <?= $skmk->no_skmk ?></p>
 
